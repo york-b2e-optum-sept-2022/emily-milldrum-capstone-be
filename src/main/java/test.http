@@ -1,0 +1,139 @@
+###
+POST http://localhost:8080/api/category/
+Content-Type: application/json
+
+{
+  "category": "coffee"
+}
+
+###
+POST http://localhost:8080/api/category/
+Content-Type: application/json
+
+{
+  "category": "cake mix"
+}
+
+###
+POST http://localhost:8080/api/category/
+Content-Type: application/json
+
+{
+  "category": "baked goods"
+}
+
+
+### DONT FORGET TO CHANGE THE CATEGORY IDS IN THESE PRODUCTS
+###
+POST http://localhost:8080/api/product/
+Content-Type: application/json
+
+{
+  "name": "Pillsbury Funfetti Cake Donut Mix",
+  "description": "These donuts are the festive, fun treat that you've been waiting for!  Pillsbury Funfetti Vanilla Cake Donut Mix turns ordinary donuts into ...",
+  "imgUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSz4l2YphrriKs0eDpsu5LjPyL_8aBAONzx7awbmr01wZREL1cxu992ai4stdv-pAhh5sOYcoXZL_wzqpz2hbmQexZLz7_FYmH_slH-IXH7nREBowbnW6RZ&usqp=CAE",
+  "price": "3.29",
+  "sale": "2.22",
+  "category": [{"id": 5, "category": "cake mix"}],
+  "discontinued": false,
+  "discount": "0"
+}
+
+###
+POST http://localhost:8080/api/product/
+Content-Type: application/json
+
+{
+  "name": "Keurig Donut Shop Medium Roast K-Cups",
+  "imgUrl": "https://pics.drugstore.com/prodimg/595810/900.jpg",
+  "description": "Dive headfirst into a cup of delicious coffee. With our full-bodied taste, you can reimagine the limits of coffee and turn every day into ...",
+  "price": "6.99",
+  "sale": "5.99",
+  "category": [{"id": 4, "category": "coffee"}],
+  "discontinued": false,
+  "discount": "0"
+}
+
+###
+POST http://localhost:8080/api/product/
+Content-Type: application/json
+
+{
+  "name": "Quest Chocolate Sprinkled Doughnut Protein Bar",
+  "imgUrl": "https://target.scene7.com/is/image/Target/GUEST_4b1e3241-b987-40f7-bbd6-c80af1eaad66?wid=488&hei=488&fmt=pjpeg",
+  "description": "Enjoy the delicious taste and satisfaction of a protein bar complete with sprinkles and sweetly satisfying doughnut taste.",
+  "price": "8.9",
+  "sale": "7.99",
+  "category": [{"id": 6, "category": "baked goods"}],
+  "discontinued": false,
+  "discount": "0"
+}
+
+###
+POST http://localhost:8080/api/product/
+Content-Type: application/json
+
+{
+  "name": "Hostess Donettes Powdered Mini Donuts - 10oz",
+  "imgUrl": "https://target.scene7.com/is/image/Target/GUEST_5f5b43b7-c7dc-43aa-b25e-d0ae22af6c70?wid=1000&hei=1000&qlt=80&fmt=webp",
+  "description": "Get a sweet start with HOSTESS Powdered Sugar DONETTES. These mini breakfast donuts are made to golden perfection and covered with a dusting of yummy powdered sugar. Get the day off to a great start with the best mini donuts around. ",
+  "price": "2.59",
+  "sale": "2.15",
+  "category": [{"id": 6, "category": "baked goods"}],
+  "discontinued": false,
+  "discount": "0"
+}
+
+###
+POST http://localhost:8080/api/product/
+Content-Type: application/json
+
+{
+  "name": "Freshness Guaranteed Chocolate Iced and Glazed Donuts, 26 oz, 12 Count",
+  "imgUrl": "https://assets3.thrillist.com/v1/image/3079746/828x610/flatten;crop;webp=auto;jpeg_quality=60.jpg",
+  "description": "The simple yet classic that everyone loves, the Glazed Donut!",
+  "price": "4.92",
+  "sale": "3.67",
+  "category": [{"id": 6, "category": "baked goods"}],
+  "discontinued": false,
+  "discount": "0"
+}
+
+###
+POST http://localhost:8080/api/product/
+Content-Type: application/json
+
+{
+  "name": "Chocolate Glazed Donut",
+  "imgUrl": "https://www.donuts.es/assets/img/donuts_foundan2.png",
+  "description": "fluffy donuts that are baked, not fried, and full of chocolate. Covered in a thick chocolate glaze, these are perfect for any chocoholic who wants a chocolate version of this classic treat.",
+  "price": "4.00",
+  "sale": "3.53",
+  "category": [{"id": 6, "category": "baked goods"}],
+  "discontinued": false,
+  "discount": "0"
+}
+
+###
+TCIN: 75664719
+UPC: 888849008674
+Item Number (DPCI): 094-08-1322
+###
+
+DELETE http://localhost:8080/api/product/21
+Content-Type: application/json
+###
+
+PUT http://localhost:8080/api/product/
+Content-Type: application/json
+
+{
+  "id": 27,
+  "name": "Quest Chocolate Sprinkled Doughnut Protein Bar",
+  "imgUrl": "https://target.scene7.com/is/image/Target/GUEST_4b1e3241-b987-40f7-bbd6-c80af1eaad66?wid=488&hei=488&fmt=pjpeg",
+  "description": "Quest protein bar in chocolate sprinkled doughnut flavor",
+  "price": "8.9",
+  "sale": "7.99",
+  "category": "protein bars",
+  "discontinued": false
+}
