@@ -1,9 +1,10 @@
 ###
-POST http://localhost:8080/api/category/
+POST http://localhost:8080/api/process/
 Content-Type: application/json
 
 {
-  "category": "coffee"
+  "title": "coffee",
+  "stage": null
 }
 
 ###
