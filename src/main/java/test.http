@@ -8,12 +8,8 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8080/api/category/
+GET http://localhost:8080/api/process/
 Content-Type: application/json
-
-{
-  "category": "cake mix"
-}
 
 ###
 POST http://localhost:8080/api/category/
