@@ -3,6 +3,7 @@ package net.yorksolutions.emilymilldrumcapstonebe.stage;
 import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptions;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,16 +21,18 @@ public class Stage {
     private String type;
 
     @OneToMany
-    @JoinTable(name="stage_stageoptions")
-    private Set<StageOptions> stageOptions;
-    public Stage(){
+    @JoinTable
+    private List<StageOptions> stageOptions;
 
-    }
+//    @OneToMany
+//    @JoinTable(name="stage_stageoptions")
+//    private Set<StageOptions> stageOptions;
+    //private String stageOptions;
 
-    public Stage(
-            //Integer processId,
-            String question, Integer stageOrder, String type) {
-        //setProcessId(processId);
+
+    public Stage()
+    {}
+    public Stage(String question, Integer stageOrder, String type) {
         setQuestion(question);
         setStageOrder(stageOrder);
         setType(type);
@@ -42,6 +45,7 @@ public class Stage {
     public void setId(Integer id) {
         this.id = id;
     }
+
 
 //    public Integer getProcessId() {
 //        return processId;
@@ -75,11 +79,11 @@ public class Stage {
         this.type = type;
     }
 
-    public Set<StageOptions> getStageOptions() {
-        return stageOptions;
-    }
-
-    public void setStageOptions(Set<StageOptions> stageOptions) {
-        this.stageOptions = stageOptions;
-    }
+//    public Set<StageOptions> getStageOptions() {
+//        return stageOptions;
+//    }
+//
+//    public void setStageOptions(Set<StageOptions> stageOptions) {
+//        this.stageOptions = stageOptions;
+//    }
 }

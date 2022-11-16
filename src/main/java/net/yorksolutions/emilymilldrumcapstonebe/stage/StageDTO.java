@@ -1,6 +1,8 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stage;
 
-public class StageDTO {
+import net.yorksolutions.emilymilldrumcapstonebe.process.ProcessDTO;
+
+public class StageDTO extends ProcessDTO {
     //public Integer processId;
     public String question;
     public Integer stageOrder;

@@ -1,4 +1,6 @@
 package net.yorksolutions.emilymilldrumcapstonebe.process;
+import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -13,14 +15,14 @@ public class Process {
     private String title;
     private Boolean discontinued;
 
-//    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
 //    @JoinTable(name="process_stage",
 //            joinColumns=
 //            @JoinColumn(name="process_id", referencedColumnName="id"),
 //            inverseJoinColumns=
 //            @JoinColumn(name="stage_id", referencedColumnName="id"))
 //    @JoinTable(name="process_stage")
-//    private Set<Stage> stage;
+    private Set<Stage> stage;
 
 
     public Process(){
@@ -64,12 +66,12 @@ public class Process {
         this.title = title;
     }
 
-//    public Set<Stage> getStage() {
-//        return stage;
-//    }
-//
-//    public void setStage(Set<Stage> stage) {
-//        this.stage = stage;
-//    }
+    public Set<Stage> getStage() {
+        return stage;
+    }
+
+    public void setStage(Set<Stage> stage) {
+        this.stage = stage;
+    }
 
 }

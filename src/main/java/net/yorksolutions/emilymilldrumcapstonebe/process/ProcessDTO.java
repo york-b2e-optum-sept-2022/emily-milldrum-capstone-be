@@ -6,6 +6,7 @@ import java.util.Set;
 public class ProcessDTO {
 
     public String title;
-    //public Set<Stage> stage;
     public Boolean discontinued;
+
+    public Set<Stage> stage;
 }

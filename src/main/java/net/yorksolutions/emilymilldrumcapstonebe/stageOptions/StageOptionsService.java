@@ -24,21 +24,22 @@ public class StageOptionsService {
         return this.stageOptionsRepository.findAll();
     }
 
-    public StageOptions create(StageOptionsDTO requestDTO) {
-        try {
-            return this.stageOptionsRepository.save(
-                    new Stage(
-                            //requestDTO.processId,
-                            requestDTO.
-                            //TODO FIX ORDER
-                            requestDTO.stageOrder,
-                            requestDTO.type));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-        return this.stageOptionsRepository.save(requestDTO);
-    }
+
+//    public StageOptions create(StageOptionsDTO requestDTO) {
+//        try {
+//            return this.stageOptionsRepository.save(
+//                    new Stage(
+//                            //requestDTO.processId,
+//                            requestDTO.
+//                            //TODO FIX ORDER
+//                            requestDTO.stageOrder,
+//                            requestDTO.type));
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+//        return this.stageOptionsRepository.save(requestDTO);
+//    }
 
 //TODO
 

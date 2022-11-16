@@ -16,11 +16,11 @@ public class StageOptionsController {
         this.stageOptionsService = stageOptionsService;
     }
 
-    @PostMapping
-    public StageOptions create(@RequestBody StageOptionsDTO requestDTO){
-
-        return this.stageOptionsService.create(requestDTO);
-    }
+//    @PostMapping
+//    public StageOptions create(@RequestBody StageOptionsDTO requestDTO){
+//
+//        return this.stageOptionsService.create(requestDTO);
+//    }
 
     @GetMapping
     Iterable<StageOptions> get() {

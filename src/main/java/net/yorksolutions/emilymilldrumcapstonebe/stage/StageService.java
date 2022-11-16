@@ -22,7 +22,6 @@ public class StageService {
                     new Stage(
                             //requestDTO.processId,
                             requestDTO.question,
-                            //TODO FIX ORDER
                             requestDTO.stageOrder,
                             requestDTO.type));
         } catch (Exception e) {
