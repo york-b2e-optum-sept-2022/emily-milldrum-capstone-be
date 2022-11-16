@@ -1,9 +1,8 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stage;
 
-import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptions;
-
 public class StageDTO {
+    //public Integer processId;
     public String question;
-    public Integer ordering;
+    public Integer stageOrder;
     public String type;
 }

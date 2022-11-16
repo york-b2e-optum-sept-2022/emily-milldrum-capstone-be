@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 @Service
 public class StageService {
@@ -18,7 +19,11 @@ public class StageService {
     public Stage create(StageDTO requestDTO) {
         try {
             return this.stageRepository.save(
-                    new Stage(requestDTO.question, requestDTO.ordering,
+                    new Stage(
+                            //requestDTO.processId,
+                            requestDTO.question,
+                            //TODO FIX ORDER
+                            requestDTO.stageOrder,
                             requestDTO.type));
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -42,10 +47,13 @@ public class StageService {
 
         Stage stage = stageOpt.get();
             stage.setQuestion(requestDTO.question);
-            stage.setOrdering(requestDTO.ordering);
+            stage.setStageOrder(requestDTO.stageOrder);
             stage.setType(requestDTO.type);
 
         return this.stageRepository.save(stage);
     }
 
+//    public Iterable<Stage> findStagesByProcessId(Integer processId) {
+//        return this.stageRepository.findStagesByProcessId(processId);
+//    }
 }

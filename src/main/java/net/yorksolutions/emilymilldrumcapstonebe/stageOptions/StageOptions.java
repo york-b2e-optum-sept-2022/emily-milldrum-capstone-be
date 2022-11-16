@@ -16,7 +16,7 @@ public class StageOptions {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-    private String type;
+    private String option;
 
     public StageOptions(){
 

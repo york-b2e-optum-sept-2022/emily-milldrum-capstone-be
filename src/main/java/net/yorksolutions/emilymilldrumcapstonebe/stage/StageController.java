@@ -1,9 +1,4 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stage;
-
-import net.yorksolutions.emilymilldrumcapstonebe.process.Process;
-import net.yorksolutions.emilymilldrumcapstonebe.process.ProcessDTO;
-import net.yorksolutions.emilymilldrumcapstonebe.process.ProcessService;
-import net.yorksolutions.emilymilldrumcapstonebe.process.ProcessUpdateDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -37,4 +32,8 @@ public class StageController {
         return this.stageService.update(requestDTO);
     }
 
+//    @GetMapping("/byId/{processId}")
+//    Iterable<Stage> getById(@PathVariable Integer processId) {
+//        return this.stageService.findStagesByProcessId(processId);
+//    }
 }

@@ -18,6 +18,7 @@ public class Response {
     Stage stage;
 
     @OneToMany
+    @JoinTable(name="response_answer")
     List<Answer> answer;
 
     public Response(){

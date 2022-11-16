@@ -1,5 +1,5 @@
 ###
-POST http://localhost:8080/api/stage/
+POST http://localhost:8080/api/process/
 Content-Type: application/json
 
 {
@@ -8,11 +8,13 @@ Content-Type: application/json
   "stage": [
     {
       "question": "Why coffee?",
-      "order": 1,
-      "type": {
-        "id": 0,
-        "type": "boolean"
-      }
+      "stageOrder": 1,
+      "type": "boolean"
+    },
+    {
+      "question": "Why coffee?",
+      "stageOrder": 1,
+      "type": "textbox"
     }
   ]
 }
@@ -24,16 +26,7 @@ Content-Type: application/json
 {
   "title": "coffee",
   "discontinued": false,
-  "stage": [
-    {
-      "question": "Why coffee?",
-      "order": 1,
-      "type": {
-        "id": 0,
-        "type": "boolean"
-      }
-    }
-      ]
+  "stage": []
 }
 
 ###
@@ -41,11 +34,14 @@ GET http://localhost:8080/api/process/
 Content-Type: application/json
 
 ###
-POST http://localhost:8080/api/category/
+POST http://localhost:8080/api/stage/
 Content-Type: application/json
 
 {
-  "category": "baked goods"
+  "processId": 5,
+  "question": "WHY",
+  "stageOrder": 222,
+  "type": "boolean"
 }
 
 

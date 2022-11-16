@@ -17,6 +17,11 @@ public class Process {
     private Boolean discontinued;
 
     @OneToMany
+//    @JoinTable(name="process_stage",
+//            joinColumns=
+//            @JoinColumn(name="process_id", referencedColumnName="id"),
+//            inverseJoinColumns=
+//            @JoinColumn(name="stage_id", referencedColumnName="id"))
     @JoinTable(name="process_stage")
     private Set<Stage> stage;
 

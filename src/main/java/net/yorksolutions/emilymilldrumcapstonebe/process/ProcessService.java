@@ -1,5 +1,7 @@
 package net.yorksolutions.emilymilldrumcapstonebe.process;
 
+import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
+import net.yorksolutions.emilymilldrumcapstonebe.stage.StageRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -10,6 +12,7 @@ import java.util.Optional;
 public class ProcessService {
 
     ProcessRepository processRepository;
+    StageRepository stageRepository;
 
     public ProcessService(ProcessRepository processRepository) {
         this.processRepository = processRepository;
@@ -17,6 +20,10 @@ public class ProcessService {
 
     public Process create(ProcessDTO requestDTO) {
         try {
+
+            Stage newStage = new Stage();
+            this.stageRepository.save(newStage);
+
             return this.processRepository.save(
                     new Process(requestDTO.title, requestDTO.discontinued,
                             requestDTO.stage));
