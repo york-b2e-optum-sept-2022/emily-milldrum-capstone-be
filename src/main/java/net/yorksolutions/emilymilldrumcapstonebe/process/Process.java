@@ -1,7 +1,4 @@
 package net.yorksolutions.emilymilldrumcapstonebe.process;
-
-import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -16,28 +13,30 @@ public class Process {
     private String title;
     private Boolean discontinued;
 
-    @OneToMany
+//    @OneToMany
 //    @JoinTable(name="process_stage",
 //            joinColumns=
 //            @JoinColumn(name="process_id", referencedColumnName="id"),
 //            inverseJoinColumns=
 //            @JoinColumn(name="stage_id", referencedColumnName="id"))
-    @JoinTable(name="process_stage")
-    private Set<Stage> stage;
+//    @JoinTable(name="process_stage")
+//    private Set<Stage> stage;
 
 
     public Process(){
         setId(0);
         setTitle("Title");
-        setStage(null);
+        //setStage(null);
     }
-    public Process(Set<Stage> stage){
-        setStage(stage);
-    }
-    public Process(String title, Boolean discontinued, Set<Stage> stage){
+//    public Process(Set<Stage> stage){
+//        setStage(stage);
+//    }
+    public Process(String title, Boolean discontinued
+                  // Set<Stage> stage
+    ){
         setTitle(title);
         setDiscontinued(discontinued);
-        setStage(stage);
+       // setStage(stage);
     }
 
     //setters & getters
@@ -65,12 +64,12 @@ public class Process {
         this.title = title;
     }
 
-    public Set<Stage> getStage() {
-        return stage;
-    }
-
-    public void setStage(Set<Stage> stage) {
-        this.stage = stage;
-    }
+//    public Set<Stage> getStage() {
+//        return stage;
+//    }
+//
+//    public void setStage(Set<Stage> stage) {
+//        this.stage = stage;
+//    }
 
 }

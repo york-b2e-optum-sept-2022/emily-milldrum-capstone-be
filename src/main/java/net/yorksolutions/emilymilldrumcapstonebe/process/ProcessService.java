@@ -21,12 +21,13 @@ public class ProcessService {
     public Process create(ProcessDTO requestDTO) {
         try {
 
-            Stage newStage = new Stage();
-            this.stageRepository.save(newStage);
+//            Stage newStage = new Stage();
+//            this.stageRepository.save(newStage);
 
             return this.processRepository.save(
-                    new Process(requestDTO.title, requestDTO.discontinued,
-                            requestDTO.stage));
+                    new Process(requestDTO.title, requestDTO.discontinued
+                          //  requestDTO.stage
+                    ));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -45,13 +46,17 @@ public class ProcessService {
         if(processOpt.isEmpty()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-
+//
+//        for(final Stage stage : requestDTO.stage){
+//            this.stageRepository.save(stage);
+//        }
         Process process = processOpt.get();
         process.setTitle(requestDTO.title);
         process.setDiscontinued(requestDTO.discontinued);
-
-        //TODO FIX this here for BE testing
-        process.setStage(requestDTO.stage);
+//        process.setStage(requestDTO.stage);
+//
+//        //TODO FIX this here for BE testing
+//        process.setStage(requestDTO.stage);
 
         return this.processRepository.save(process);
     }

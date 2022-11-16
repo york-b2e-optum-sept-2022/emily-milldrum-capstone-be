@@ -12,13 +12,15 @@ public class Stage {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-    //private Integer processId;
+
+//    @ManyToOne
+//    Process process;
     private String question;
     private Integer stageOrder;
     private String type;
 
     @OneToMany
-    //@JoinTable(name="stage_stageoptions")
+    @JoinTable(name="stage_stageoptions")
     private Set<StageOptions> stageOptions;
     public Stage(){
 

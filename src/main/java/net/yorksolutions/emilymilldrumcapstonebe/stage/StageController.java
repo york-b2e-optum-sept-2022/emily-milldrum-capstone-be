@@ -10,8 +10,6 @@ public class StageController {
         this.stageService = stageService;
     }
 
-
-
     @PostMapping
     public Stage create(@RequestBody StageDTO requestDTO){
         return this.stageService.create(requestDTO);
