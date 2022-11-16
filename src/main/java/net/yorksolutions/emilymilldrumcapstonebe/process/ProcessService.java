@@ -18,7 +18,8 @@ public class ProcessService {
     public Process create(ProcessDTO requestDTO) {
         try {
             return this.processRepository.save(
-                    new Process(requestDTO.title, requestDTO.stage));
+                    new Process(requestDTO.title, requestDTO.discontinued,
+                            requestDTO.stage));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -40,7 +41,15 @@ public class ProcessService {
 
         Process process = processOpt.get();
         process.setTitle(requestDTO.title);
+        process.setDiscontinued(requestDTO.discontinued);
+
+        //TODO FIX this here for BE testing
+        process.setStage(requestDTO.stage);
 
         return this.processRepository.save(process);
+    }
+
+    public Process createAll(ProcessDTO requestDTO) {
+        return null;
     }
 }

@@ -1,10 +1,39 @@
 ###
+POST http://localhost:8080/api/stage/
+Content-Type: application/json
+
+{
+  "title": "coffee",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "Why coffee?",
+      "order": 1,
+      "type": {
+        "id": 0,
+        "type": "boolean"
+      }
+    }
+  ]
+}
+
+###
 POST http://localhost:8080/api/process/
 Content-Type: application/json
 
 {
   "title": "coffee",
-  "stage": null
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "Why coffee?",
+      "order": 1,
+      "type": {
+        "id": 0,
+        "type": "boolean"
+      }
+    }
+      ]
 }
 
 ###

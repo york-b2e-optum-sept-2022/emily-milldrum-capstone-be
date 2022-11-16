@@ -7,4 +7,5 @@ public class ProcessDTO {
 
     public String title;
     public Set<Stage> stage;
+    public Boolean discontinued;
 }

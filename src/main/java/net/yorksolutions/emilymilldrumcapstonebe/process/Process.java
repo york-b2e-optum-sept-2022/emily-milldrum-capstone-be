@@ -14,8 +14,10 @@ public class Process {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     private String title;
+    private Boolean discontinued;
 
     @OneToMany
+    @JoinTable(name="process_stage")
     private Set<Stage> stage;
 
 
@@ -24,9 +26,12 @@ public class Process {
         setTitle("Title");
         setStage(null);
     }
-
-    public Process(String title, Set<Stage> stage){
+    public Process(Set<Stage> stage){
+        setStage(stage);
+    }
+    public Process(String title, Boolean discontinued, Set<Stage> stage){
         setTitle(title);
+        setDiscontinued(discontinued);
         setStage(stage);
     }
 
@@ -41,6 +46,14 @@ public class Process {
 
     public String getTitle() {
         return title;
+    }
+
+    public Boolean getDiscontinued() {
+        return discontinued;
+    }
+
+    public void setDiscontinued(Boolean discontinued) {
+        this.discontinued = discontinued;
     }
 
     public void setTitle(String title) {

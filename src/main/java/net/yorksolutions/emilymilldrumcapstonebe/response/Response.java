@@ -19,4 +19,8 @@ public class Response {
 
     @OneToMany
     List<Answer> answer;
+
+    public Response(){
+
+    }
 }
