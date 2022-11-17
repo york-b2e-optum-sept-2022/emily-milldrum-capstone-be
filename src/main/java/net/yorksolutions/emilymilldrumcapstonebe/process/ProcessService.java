@@ -24,23 +24,24 @@ public class ProcessService {
     public Processes create(ProcessDTO requestDTO) {
         try {
             Processes newProc = new Processes(requestDTO.title, requestDTO.discontinued, requestDTO.stage);
-            //Proccesses newProc = new Processes();
+//            Proccesses newProc = new Processes();
 //            System.out.println(requestDTO.stage.toString());
 //
 //            processRepository.save(processes);
-//            Stage newStage = new Stage();
+            this.processesRepository.save(newProc);
+            Stage newStage = new Stage();
 //            List<StageDTO> stageList = requestDTO.stage;
             for (Stage stage : requestDTO.stage){
-//                newStage.setQuestion(stage.question);
-//                newStage.setStageOrder(stage.stageOrder);
-//                newStage.setType(stage.type);
-//                System.out.println(newStage.toString());
-//                this.stageRepository.save(newStage);
-//
-//                this.processRepository.save(processes);
+                newStage.setQuestion(stage.getQuestion());
+                newStage.setStageOrder(stage.getStageOrder());
+                newStage.setType(stage.getType());
+                         System.out.println(newStage.toString());
+                this.stageRepository.save(newStage);
+
+
                 newProc.getStage().add(this.stageRepository.save(this.createStage(stage)));
             }
-            return this.processesRepository.save(new Processes(requestDTO.title, requestDTO.discontinued, requestDTO.stage));
+            return this.processesRepository.save(newProc);
 
 //
         } catch (Exception e) {

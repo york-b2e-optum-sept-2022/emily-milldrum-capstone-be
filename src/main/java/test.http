@@ -3,15 +3,15 @@ POST http://localhost:8080/api/process/
 Content-Type: application/json
 
 {
-  "id": 116,
-  "title": "coffee",
+  "title": "NEW CAKE!",
   "discontinued": false,
   "stage": [
     {
-      "id": 122,
-      "question": "WHY",
-      "stageOrder": 222,
-      "type": "boolean"
+      "processId": 112,
+      "question": "NEW Cake?!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
     }
   ]
 }
