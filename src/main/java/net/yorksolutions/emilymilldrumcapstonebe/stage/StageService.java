@@ -23,30 +23,36 @@ public class StageService {
     }
 
     public Stage create(StageDTO requestDTO) {
-
+        Optional<Processes> optProc = this.processRepository.findById(requestDTO.processId);
+        if(optProc.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        Processes thisProc = optProc.get();
         try {
-            Optional<Processes> optProc = this.processRepository.findById(requestDTO.processId);
-            if(!optProc.isPresent()) {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-            }
+//            Stage stage = new Stage();
+//            stage.setQuestion(requestDTO.question);
+//            stage.setStageOrder(requestDTO.stageOrder);
+//            stage.setType(requestDTO.type);
+//            stage.setStageOptions(requestDTO.stageOptions);
+//            return this.stageRepository.save(
+//                   stage);
 
-            Stage result = this.stageRepository.save(
+//
+//            Stage result =
+
+
+//            this.processRepository.save(thisProc);
+
+            return this.stageRepository.save(
                     new Stage(
                             optProc.get(),
                             requestDTO.question,
                             requestDTO.stageOrder,
                             requestDTO.type,
                             requestDTO.stageOptions));
-            Processes thisProc = optProc.get();
-            List<Stage> stageList = thisProc.getStage();
-            stageList.add(result);
-
-            this.processRepository.save(thisProc);
-
-            return result;
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
     }
 

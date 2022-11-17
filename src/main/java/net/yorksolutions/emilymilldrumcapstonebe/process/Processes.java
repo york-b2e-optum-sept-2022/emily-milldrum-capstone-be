@@ -22,7 +22,7 @@ public class Processes {
 //            @JoinColumn(name="process_id", referencedColumnName="id"),
 //            inverseJoinColumns=
 //            @JoinColumn(name="stage_id", referencedColumnName="id"))
-    @JoinTable(name="process_stage")
+   @JoinTable(name="processes_stage")
     private List<Stage> stage;
 
 

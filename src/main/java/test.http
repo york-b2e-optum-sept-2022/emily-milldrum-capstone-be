@@ -3,10 +3,12 @@ POST http://localhost:8080/api/process/
 Content-Type: application/json
 
 {
+  "id": 116,
   "title": "coffee",
   "discontinued": false,
   "stage": [
     {
+      "id": 122,
       "question": "WHY",
       "stageOrder": 222,
       "type": "boolean"
@@ -29,9 +31,9 @@ POST http://localhost:8080/api/stage/
 Content-Type: application/json
 
     {
-      "processId": 111,
+      "processId": 112,
       "question": "Cake?",
-      "stageOrder": 222,
+      "stageOrder": 2,
       "type": "boolean",
       "stageOptions": []
     }
@@ -43,7 +45,7 @@ Content-Type: application/json
 {
   "processId": 111,
   "question": "WHY",
-  "stageOrder": 222,
+  "stageOrder": 2,
   "type": "boolean"
 }
 

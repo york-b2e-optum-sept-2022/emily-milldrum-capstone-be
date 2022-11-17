@@ -1,7 +1,6 @@
 package net.yorksolutions.emilymilldrumcapstonebe.process;
 
 import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
-import net.yorksolutions.emilymilldrumcapstonebe.stage.StageDTO;
 import net.yorksolutions.emilymilldrumcapstonebe.stage.StageRepository;
 import net.yorksolutions.emilymilldrumcapstonebe.stage.StageService;
 import org.springframework.http.HttpStatus;
@@ -16,36 +15,48 @@ public class ProcessService {
 
     ProcessRepository processRepository;
     StageRepository stageRepository;
+    StageService stageService;
 
-    public ProcessService(ProcessRepository processRepository) {
+    public ProcessService(ProcessRepository processRepository, StageService stageService) {
         this.processRepository = processRepository;
+        this.stageRepository = stageRepository;
     }
 
     public Processes create(ProcessDTO requestDTO) {
         try {
             //TODO FIGURE OUT HOW TO SAVE STAGES TO PROCESSES
-            Processes processes = new Processes(requestDTO.title, requestDTO.discontinued);
-            System.out.println(requestDTO.stage.toString());
-
-            processRepository.save(processes);
-            Stage newStage = new Stage();
-            List<StageDTO> stageList = requestDTO.stage;
-            for (StageDTO stage : stageList){
-                newStage.setQuestion(stage.question);
-                newStage.setStageOrder(stage.stageOrder);
-                newStage.setType(stage.type);
-                System.out.println(newStage.toString());
-                stageRepository.save(newStage);
-
-                processRepository.save(processes);
+            Processes newProc = new Processes(requestDTO.title, requestDTO.discontinued, requestDTO.stage);
+            //Proccesses newProc = new Processes();
+//            System.out.println(requestDTO.stage.toString());
+//
+//            processRepository.save(processes);
+//            Stage newStage = new Stage();
+//            List<StageDTO> stageList = requestDTO.stage;
+            for (Stage stage : requestDTO.stage){
+//                newStage.setQuestion(stage.question);
+//                newStage.setStageOrder(stage.stageOrder);
+//                newStage.setType(stage.type);
+//                System.out.println(newStage.toString());
+//                this.stageRepository.save(newStage);
+//
+//                this.processRepository.save(processes);
+                newProc.getStage().add(this.stageRepository.save(this.createStage(stage)));
             }
-            return processRepository.save(processes);
+            return this.processRepository.save(new Processes(requestDTO.title, requestDTO.discontinued, requestDTO.stage));
 
-//            return this.processRepository.save(
-//                    new Process(requestDTO.title, requestDTO.discontinued, requestDTO.stage));
+//
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private Stage createStage(Stage stage) {
+        Stage newStage = new Stage();
+        newStage.setQuestion(stage.getQuestion());
+        newStage.setStageOrder(stage.getStageOrder());
+        newStage.setType(stage.getType());
+
+        return newStage;
     }
 
     public Iterable<Processes> getAllProcesses() {

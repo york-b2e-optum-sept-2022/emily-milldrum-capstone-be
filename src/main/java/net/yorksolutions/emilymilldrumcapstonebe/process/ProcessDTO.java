@@ -10,5 +10,5 @@ public class ProcessDTO {
     public String title;
     public Boolean discontinued;
 
-    public List<StageDTO> stage;
+    public List<Stage> stage;
 }

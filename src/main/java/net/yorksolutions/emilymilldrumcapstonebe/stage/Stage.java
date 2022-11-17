@@ -22,7 +22,7 @@ public class Stage {
     private String type;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable
+    //@JoinTable
     private List<StageOptions> stageOptions;
 
     public Stage() {
