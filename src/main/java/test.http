@@ -3,21 +3,33 @@ POST http://localhost:8080/api/process/
 Content-Type: application/json
 
 {
-  "title": "NEW CAKE!",
+  "title": "ABEST CAKE!!!",
   "discontinued": false,
   "stage": [
     {
-      "processId": 112,
-      "question": "NEW Cake?!",
+      "question": "NEW Cake?!!!",
       "stageOrder": 2,
-      "type": "Boolean",
+      "type": "Multiple Choice: Single",
+      "stageOptions": [
+        {
+          "option": "yes"
+        },
+        {
+          "option": "no"
+        }
+      ]
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
       "stageOptions": []
     }
   ]
 }
 
 ###
-POST http://localhost:8080/api/process/
+POST http://localhost:8080/api/process/test/
 Content-Type: application/json
 
 {
@@ -31,7 +43,6 @@ POST http://localhost:8080/api/stage/
 Content-Type: application/json
 
     {
-      "processId": 112,
       "question": "Cake?",
       "stageOrder": 2,
       "type": "boolean",

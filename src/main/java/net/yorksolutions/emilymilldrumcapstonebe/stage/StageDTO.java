@@ -4,7 +4,6 @@ import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptions;
 import java.util.List;
 
 public class StageDTO  {
-    public Integer processId;
     public String question;
     public Integer stageOrder;
     public String type;

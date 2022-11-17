@@ -21,8 +21,12 @@ public class Stage {
     private Integer stageOrder;
     private String type;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    //@JoinTable
+    @OneToMany(
+           // mappedBy = "processes_id",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinTable(name="stage_stage_options")
     private List<StageOptions> stageOptions;
 
     public Stage() {

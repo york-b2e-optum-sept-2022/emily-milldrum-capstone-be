@@ -2,6 +2,9 @@ package net.yorksolutions.emilymilldrumcapstonebe.stage;
 
 import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
 import net.yorksolutions.emilymilldrumcapstonebe.process.ProcessesRepository;
+import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptions;
+import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptionsRepository;
+import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptionsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -13,11 +16,14 @@ public class StageService {
 
     StageRepository stageRepository;
     ProcessesRepository processRepository;
+    StageOptionsRepository optionsRepository;
+    StageOptionsService optionsService;
 
-    public StageService(StageRepository stageRepository, ProcessesRepository processRepository
+    public StageService(StageRepository stageRepository, ProcessesRepository processRepository, StageOptionsRepository optionsRepository
     ) {
         this.stageRepository = stageRepository;
         this.processRepository = processRepository;
+        this.optionsRepository = optionsRepository;
     }
 
 //    public Stage create(StageDTO requestDTO) {
@@ -51,22 +57,43 @@ public class StageService {
 //        }
 //    }
     public Stage create(StageDTO requestDTO) {
-        Optional<Processes> optProc = this.processRepository.findById(requestDTO.processId);
-        if(optProc.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
-        try {
+//        Optional<Processes> optProc = this.processRepository.findById(requestDTO.processId);
+//        if(optProc.isEmpty()) {
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+//        }
+
+        //try {
             return this.stageRepository.save(
                     new Stage(
-                            optProc.get(),
+                            //optProc.get(),
                             requestDTO.question,
                             requestDTO.stageOrder,
                             requestDTO.type,
                             requestDTO.stageOptions));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
     }
+
+     public Stage createStage(Stage stage) {
+         try {
+        Stage newStage = new Stage();
+        newStage.setQuestion(stage.getQuestion());
+        newStage.setStageOrder(stage.getStageOrder());
+        newStage.setType(stage.getType());
+
+             this.stageRepository.save(newStage);
+             StageOptions newStageOpt = new StageOptions();
+             for (StageOptions option : stage.getStageOptions()){
+                 newStage.getStageOptions().add(this.optionsRepository.save(this.optionsService.createOption(option)));
+             }
+
+        return newStage;
+         } catch (Exception e) {
+             throw new RuntimeException(e);
+         }
+    }
+
 
     public Iterable<Stage> getAllStages() {
         return stageRepository.findAll();

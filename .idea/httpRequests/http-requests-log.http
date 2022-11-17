@@ -2,6 +2,573 @@ POST http://localhost:8080/api/process/
 Content-Type: application/json
 
 {
+  "title": "ABEST CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Multiple Choice: Single",
+      "stageOptions": [
+        {
+          "option": "yes"
+        },
+        {
+          "option": "no"
+        }
+      ]
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T144637.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "ABEST CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Multiple Choice: Single",
+      "stageOptions": [
+        {
+          "string": "option"
+        },
+        {
+          "string": "option"
+        }
+      ]
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T144616.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "ABEST CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Multiple Choice: Single",
+      "stageOptions": [
+        {
+          "string": "yes"
+        },
+        {
+          "string": "no"
+        }
+      ]
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T144544.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "ABEST CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T143118.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "A NEW-OLD CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T143028.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW-OLD CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T142930.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW-OLD CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T142619.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW-OLD CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T142525.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW-OLD CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T142429.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW-OLD CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T142341.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T140948.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T140841.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    },
+    {
+      "question": "OLD Cake?!!!",
+      "stageOrder": 1,
+      "type": "Textbox",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T140742.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T140637.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T140453.500.json
+
+###
+
+POST http://localhost:8080/api/process/test/
+Content-Type: application/json
+
+{
+  "title": "coffee",
+  "discontinued": false,
+  "stage": []
+}
+
+<> 2022-11-17T140432.200.json
+
+###
+
+POST http://localhost:8080/api/api/test/
+Content-Type: application/json
+
+{
+  "title": "coffee",
+  "discontinued": false,
+  "stage": []
+}
+
+<> 2022-11-17T140355.404.json
+
+###
+
+POST http://localhost:8080/api/stage/
+Content-Type: application/json
+
+    {
+      "question": "Cake?",
+      "stageOrder": 2,
+      "type": "boolean",
+      "stageOptions": []
+    }
+
+<> 2022-11-17T135752.500.json
+
+###
+
+POST http://localhost:8080/api/stage/
+Content-Type: application/json
+
+    {
+      "processId": 112,
+      "question": "Cake?",
+      "stageOrder": 2,
+      "type": "boolean",
+      "stageOptions": []
+    }
+
+<> 2022-11-17T135717.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "coffee",
+  "discontinued": false,
+  "stage": []
+}
+
+<> 2022-11-17T135706.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T135658.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T135545.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW CAKE!!!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T135508.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW CAKE!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T135447.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "NEW CAKE!",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "NEW Cake?!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    }
+  ]
+}
+
+<> 2022-11-17T134017.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
   "title": "NEW CAKE!",
   "discontinued": false,
   "stage": [
@@ -430,413 +997,6 @@ Content-Type: application/json
     }
 
 <> 2022-11-17T115534.500.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-    {
-      "processId": 112,
-      "question": "Cake?",
-      "stageOrder": 2,
-      "type": "boolean",
-      "stageOptions": []
-    }
-
-<> 2022-11-17T115121.200.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-    {
-      "processId": 112,
-      "question": "Cake?",
-      "stageOrder": 2,
-      "type": "boolean",
-      "stageOptions": []
-    }
-
-<> 2022-11-17T115114.200.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-{
-  "processId": 111,
-  "question": "WHY",
-  "stageOrder": 2,
-  "type": "boolean"
-}
-
-<> 2022-11-17T111835.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "coffee",
-  "discontinued": false,
-  "stage": []
-}
-
-<> 2022-11-17T111829.200.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "coffee",
-  "discontinued": false,
-  "stage": []
-}
-
-<> 2022-11-17T110542.200.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "id": 116,
-  "title": "coffee",
-  "discontinued": false,
-  "stage": [
-    {
-      "id": 122,
-      "question": "WHY",
-      "stageOrder": 222,
-      "type": "boolean"
-    }
-  ]
-}
-
-<> 2022-11-17T110537.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "id": 111,
-  "title": "coffee",
-  "discontinued": false,
-  "stage": [
-    {
-      "question": "WHY",
-      "stageOrder": 222,
-      "type": "boolean"
-    }
-  ]
-}
-
-<> 2022-11-17T110518.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "id": 111,
-  "title": "coffee",
-  "discontinued": false,
-  "stage": [
-    {
-      "id": 12,
-      "question": "WHY",
-      "stageOrder": 222,
-      "type": "boolean"
-    }
-  ]
-}
-
-<> 2022-11-17T110507.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "coffee",
-  "discontinued": false,
-  "stage": [
-    {
-      "id": 12,
-      "question": "WHY",
-      "stageOrder": 222,
-      "type": "boolean"
-    }
-  ]
-}
-
-<> 2022-11-17T110407.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "coffee",
-  "discontinued": false,
-  "stage": [
-    {
-      "id": 12,
-      "question": "WHY",
-      "stageOrder": 222,
-      "type": "boolean"
-    }
-  ]
-}
-
-<> 2022-11-17T110036.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "coffee",
-  "discontinued": false,
-  "stage": [
-    {
-      "question": "WHY",
-      "stageOrder": 222,
-      "type": "boolean"
-    }
-  ]
-}
-
-<> 2022-11-17T110024.500.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-    {
-      "processId": 112,
-      "question": "Cake?",
-      "stageOrder": 2,
-      "type": "boolean"
-    }
-
-<> 2022-11-17T104033.500.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-{
-  "processId": 111,
-  "question": "WHY",
-  "stageOrder": 222,
-  "type": "boolean"
-}
-
-<> 2022-11-17T104016.500.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-    {
-      "processId": 112,
-      "question": "Cake?",
-      "stageOrder": 222,
-      "type": "boolean",
-      "stageOptions": []
-    }
-
-<> 2022-11-17T104004.500.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-    {
-      "processId": 112,
-      "question": "Cake?",
-      "stageOrder": 222,
-      "type": "boolean",
-      "stageOptions": []
-    }
-
-<> 2022-11-17T103652.500.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-    {
-      "processId": 112,
-      "question": "Cake?",
-      "stageOrder": 222,
-      "type": "boolean",
-      "stageOptions": []
-    }
-
-<> 2022-11-17T103416.500.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-    {
-      "processId": 112,
-      "question": "Cake?",
-      "stageOrder": 222,
-      "type": "boolean",
-      "stageOptions": []
-    }
-
-<> 2022-11-17T102930.500.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-    {
-      "processId": 112,
-      "question": "Cake?",
-      "stageOrder": 222,
-      "type": "boolean",
-      "stageOptions": []
-    }
-
-<> 2022-11-17T102626.500.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-    {
-      "processId": 112,
-      "question": "Cake?",
-      "stageOrder": 222,
-      "type": "boolean",
-      "stageOptions": []
-    }
-
-<> 2022-11-17T102317.500.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-    {
-      "question": "Cake?",
-      "stageOrder": 222,
-      "type": "boolean",
-      "stageOptions": []
-    }
-
-<> 2022-11-17T101755.500.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-    {
-      "processId": 112,
-      "question": "Cake?",
-      "stageOrder": 222,
-      "type": "boolean",
-      "stageOptions": []
-    }
-
-<> 2022-11-17T101751.500.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-    {
-      "processId": 112,
-      "question": "Cake?",
-      "stageOrder": 222,
-      "type": "boolean",
-      "stageOptions": []
-    }
-
-<> 2022-11-17T101658.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "coffee",
-  "discontinued": false,
-  "stage": [
-    {
-    "question": "Cake?",
-    "stageOrder": 222,
-    "type": "boolean",
-    "stageOptions": []
-  }
-  ]
-}
-
-<> 2022-11-17T101432.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "coffee",
-  "discontinued": false,
-  "stage": [
-    {
-    "processId": 112,
-    "question": "Cake?",
-    "stageOrder": 222,
-    "type": "boolean",
-    "stageOptions": []
-  }
-  ]
-}
-
-<> 2022-11-17T101421.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "coffee",
-  "discontinued": false,
-  "stage": []
-}
-
-<> 2022-11-17T101406.200.json
 
 ###
 

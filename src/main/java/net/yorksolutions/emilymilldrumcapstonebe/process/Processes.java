@@ -1,6 +1,8 @@
 package net.yorksolutions.emilymilldrumcapstonebe.process;
 import com.sun.istack.NotNull;
 import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,13 +18,10 @@ public class Processes {
     private String title;
     private Boolean discontinued;
 
-    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name="process_stage",
-//            joinColumns=
-//            @JoinColumn(name="process_id", referencedColumnName="id"),
-//            inverseJoinColumns=
-//            @JoinColumn(name="stage_id", referencedColumnName="id"))
-   @JoinTable(name="processes_stage")
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    //@OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinTable(name="processes_stage")
     private List<Stage> stage;
 
 

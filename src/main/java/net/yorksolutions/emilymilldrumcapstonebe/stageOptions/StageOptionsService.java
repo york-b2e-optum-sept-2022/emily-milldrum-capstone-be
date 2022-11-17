@@ -1,5 +1,6 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stageOptions;
 
+import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +18,10 @@ public class StageOptionsService {
 
     public Iterable<StageOptions> getAllOptions() {
         return this.stageOptionsRepository.findAll();
+    }
+
+    public StageOptions createOption(StageOptions option) {
+        return this.stageOptionsRepository.save(option);
     }
 
 
