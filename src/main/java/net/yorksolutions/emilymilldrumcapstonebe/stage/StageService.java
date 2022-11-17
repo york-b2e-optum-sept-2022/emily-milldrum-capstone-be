@@ -22,37 +22,50 @@ public class StageService {
        // this.processRepository = processRepository;
     }
 
-    public Stage create(StageDTO requestDTO) {
-        Optional<Processes> optProc = this.processRepository.findById(requestDTO.processId);
-        if(optProc.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
-        Processes thisProc = optProc.get();
-        try {
-//            Stage stage = new Stage();
-//            stage.setQuestion(requestDTO.question);
-//            stage.setStageOrder(requestDTO.stageOrder);
-//            stage.setType(requestDTO.type);
-//            stage.setStageOptions(requestDTO.stageOptions);
-//            return this.stageRepository.save(
-//                   stage);
-
+//    public Stage create(StageDTO requestDTO) {
+//        Optional<Processes> optProc = this.processRepository.findById(requestDTO.processId);
+//        if(optProc.isEmpty()) {
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+//        }
+//        Processes thisProc = optProc.get();
+//        try {
+////            Stage stage = new Stage();
+////            stage.setQuestion(requestDTO.question);
+////            stage.setStageOrder(requestDTO.stageOrder);
+////            stage.setType(requestDTO.type);
+////            stage.setStageOptions(requestDTO.stageOptions);
+////            return this.stageRepository.save(
+////                   stage);
+////
+////            Stage result =
+////            this.processRepository.save(thisProc);
 //
-//            Stage result =
+//            return this.stageRepository.save(
+//                    new Stage(
+//                            optProc.get(),
+//                            requestDTO.question,
+//                            requestDTO.stageOrder,
+//                            requestDTO.type,
+//                            requestDTO.stageOptions));
+//
+//        } catch (Exception e) {
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+//        }
+//    }
 
-
-//            this.processRepository.save(thisProc);
-
+    public Stage create(StageDTO requestDTO) {
+//        Optional<Processes> optProc = this.processRepository.findById(requestDTO.processId);
+//        if(optProc.isEmpty()) {
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+//        }
+        try {
             return this.stageRepository.save(
                     new Stage(
-                            optProc.get(),
                             requestDTO.question,
                             requestDTO.stageOrder,
-                            requestDTO.type,
-                            requestDTO.stageOptions));
-
+                            requestDTO.type));
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            throw new RuntimeException(e);
         }
     }
 

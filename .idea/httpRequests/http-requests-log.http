@@ -1,6 +1,66 @@
 POST http://localhost:8080/api/stage/
 Content-Type: application/json
 
+    {
+      "processId": 112,
+      "question": "Cake?",
+      "stageOrder": 2,
+      "type": "boolean",
+      "stageOptions": []
+    }
+
+<> 2022-11-17T115636.200.json
+
+###
+
+POST http://localhost:8080/api/stage/
+Content-Type: application/json
+
+    {
+      "processId": 112,
+      "question": "Cake?",
+      "stageOrder": 2,
+      "type": "boolean",
+      "stageOptions": []
+    }
+
+<> 2022-11-17T115534.500.json
+
+###
+
+POST http://localhost:8080/api/stage/
+Content-Type: application/json
+
+    {
+      "processId": 112,
+      "question": "Cake?",
+      "stageOrder": 2,
+      "type": "boolean",
+      "stageOptions": []
+    }
+
+<> 2022-11-17T115121.200.json
+
+###
+
+POST http://localhost:8080/api/stage/
+Content-Type: application/json
+
+    {
+      "processId": 112,
+      "question": "Cake?",
+      "stageOrder": 2,
+      "type": "boolean",
+      "stageOptions": []
+    }
+
+<> 2022-11-17T115114.200.json
+
+###
+
+POST http://localhost:8080/api/stage/
+Content-Type: application/json
+
 {
   "processId": 111,
   "question": "WHY",
@@ -714,89 +774,6 @@ Content-Type: application/json
 }
 
 <> 2022-11-16T185311.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "coffee",
-  "discontinued": false,
-  "stage": [
-    {
-      "id": 700,
-      "question": "WHY",
-      "stageOrder": 222,
-      "type": "boolean"
-    }
-  ]
-}
-
-<> 2022-11-16T185302.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "coffee",
-  "discontinued": false,
-  "stage": [
-    {
-      "id": 7,
-      "question": "WHY",
-      "stageOrder": 222,
-      "type": "boolean"
-    }
-  ]
-}
-
-<> 2022-11-16T185256.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "coffee",
-  "discontinued": false,
-  "stage": [
-    {
-      "question": "WHY",
-      "stageOrder": 222,
-      "type": "boolean"
-    }
-  ]
-}
-
-<> 2022-11-16T185128.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "coffee",
-  "discontinued": false,
-  "stage": [
-    {
-      "question": "WHY",
-      "stageOrder": 222,
-      "type": "boolean"
-    },
-      {
-        "question": "WHY",
-        "stageOrder": 222,
-        "type": "boolean"
-      }
-  ]
-}
-
-<> 2022-11-16T185121.500.json
 
 ###
 
