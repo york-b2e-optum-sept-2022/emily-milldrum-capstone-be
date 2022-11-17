@@ -14,12 +14,12 @@ public class ProcessController {
 
 
     @PostMapping
-    public Process create(@RequestBody ProcessDTO requestDTO){
+    public Processes create(@RequestBody ProcessDTO requestDTO){
         return this.processService.create(requestDTO);
     }
 
     @GetMapping
-    Iterable<Process> get() {
+    Iterable<Processes> get() {
         return this.processService.getAllProcesses();
     }
     //
@@ -29,7 +29,7 @@ public class ProcessController {
     }
 
     @PutMapping
-    public Process update(@RequestBody ProcessUpdateDTO requestDTO){
+    public Processes update(@RequestBody ProcessUpdateDTO requestDTO){
         return this.processService.update(requestDTO);
     }
 

@@ -1,5 +1,6 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stage;
 
+import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
 import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptions;
 
 import javax.persistence.*;
@@ -14,24 +15,19 @@ public class Stage {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-//    @ManyToOne
-//    Process process;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Processes processes;
     private String question;
     private Integer stageOrder;
     private String type;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable
     private List<StageOptions> stageOptions;
 
-//    @OneToMany
-//    @JoinTable(name="stage_stageoptions")
-//    private Set<StageOptions> stageOptions;
-    //private String stageOptions;
+    public Stage() {
 
-
-    public Stage()
-    {}
+    }
     public Stage(String question, Integer stageOrder, String type) {
         setQuestion(question);
         setStageOrder(stageOrder);
@@ -44,6 +40,15 @@ public class Stage {
         setStageOptions(stageOptions);
     }
 
+    public Stage(Processes processes, String question, Integer stageOrder, String type, List<StageOptions> stageOptions) {
+        setProcesses(processes);
+        setQuestion(question);
+        setStageOrder(stageOrder);
+        setType(type);
+        setStageOptions(stageOptions);
+    }
+
+
     public Integer getId() {
         return id;
     }
@@ -52,13 +57,13 @@ public class Stage {
         this.id = id;
     }
 
-//    public Integer getProcessId() {
-//        return processId;
-//    }
-//
-//    public void setProcessId(Integer processId) {
-//        this.processId = processId;
-//    }
+    public Processes getProcesses() {
+        return processes;
+    }
+
+    public void setProcesses(Processes processes) {
+        this.processes = processes;
+    }
 
     public String getQuestion() {
         return question;

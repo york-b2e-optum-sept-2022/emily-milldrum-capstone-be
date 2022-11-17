@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,23 +16,30 @@ public class ProcessService {
 
     ProcessRepository processRepository;
     StageRepository stageRepository;
-    StageService stageService;
 
-    public ProcessService(ProcessRepository processRepository, StageService stageService) {
+    public ProcessService(ProcessRepository processRepository) {
         this.processRepository = processRepository;
     }
 
-    public Process create(ProcessDTO requestDTO) {
+    public Processes create(ProcessDTO requestDTO) {
         try {
             //TODO FIGURE OUT HOW TO SAVE STAGES TO PROCESSES
-            Process process = new Process(requestDTO.title, requestDTO.discontinued);
-            processRepository.save(process);
-            for (Stage stage : requestDTO.stage){
-                stageRepository.save(stage);
+            Processes processes = new Processes(requestDTO.title, requestDTO.discontinued);
+            System.out.println(requestDTO.stage.toString());
 
-                processRepository.save(process);
+            processRepository.save(processes);
+            Stage newStage = new Stage();
+            List<StageDTO> stageList = requestDTO.stage;
+            for (StageDTO stage : stageList){
+                newStage.setQuestion(stage.question);
+                newStage.setStageOrder(stage.stageOrder);
+                newStage.setType(stage.type);
+                System.out.println(newStage.toString());
+                stageRepository.save(newStage);
+
+                processRepository.save(processes);
             }
-            return processRepository.save(process);
+            return processRepository.save(processes);
 
 //            return this.processRepository.save(
 //                    new Process(requestDTO.title, requestDTO.discontinued, requestDTO.stage));
@@ -40,7 +48,7 @@ public class ProcessService {
         }
     }
 
-    public Iterable<Process> getAllProcesses() {
+    public Iterable<Processes> getAllProcesses() {
         return processRepository.findAll();
     }
 
@@ -48,8 +56,8 @@ public class ProcessService {
         this.processRepository.deleteById(productId);
     }
 
-    public Process update(ProcessUpdateDTO requestDTO) {
-        Optional<Process> processOpt = this.processRepository.findById(requestDTO.id);
+    public Processes update(ProcessUpdateDTO requestDTO) {
+        Optional<Processes> processOpt = this.processRepository.findById(requestDTO.id);
         if(processOpt.isEmpty()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
@@ -57,15 +65,15 @@ public class ProcessService {
 //        for(final Stage stage : requestDTO.stage){
 //            this.stageRepository.save(stage);
 //        }
-        Process process = processOpt.get();
-        process.setTitle(requestDTO.title);
-        process.setDiscontinued(requestDTO.discontinued);
+        Processes processes = processOpt.get();
+        processes.setTitle(requestDTO.title);
+        processes.setDiscontinued(requestDTO.discontinued);
 //        process.setStage(requestDTO.stage);
 //
 //        //TODO FIX this here for BE testing
 //        process.setStage(requestDTO.stage);
 
-        return this.processRepository.save(process);
+        return this.processRepository.save(processes);
     }
 
     public Process createAll(ProcessDTO requestDTO) {

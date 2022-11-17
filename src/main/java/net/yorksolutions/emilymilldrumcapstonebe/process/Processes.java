@@ -1,12 +1,13 @@
 package net.yorksolutions.emilymilldrumcapstonebe.process;
+import com.sun.istack.NotNull;
 import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 //these are the surveys
-public class Process {
+public class Processes {
 
     //variables
     @Id
@@ -21,11 +22,11 @@ public class Process {
 //            @JoinColumn(name="process_id", referencedColumnName="id"),
 //            inverseJoinColumns=
 //            @JoinColumn(name="stage_id", referencedColumnName="id"))
-//    @JoinTable(name="process_stage")
-    private Set<Stage> stage;
+    @JoinTable(name="process_stage")
+    private List<Stage> stage;
 
 
-    public Process(){
+    public Processes(){
         setId(0);
         setTitle("Title");
         setStage(null);
@@ -33,12 +34,12 @@ public class Process {
 //    public Process(Set<Stage> stage){
 //        setStage(stage);
 //    }
-    public Process(String title, Boolean discontinued){
+    public Processes(String title, Boolean discontinued){
         setTitle(title);
         setDiscontinued(discontinued);
     }
 
-    public Process(String title, Boolean discontinued, Set<Stage> stage) {
+    public Processes(String title, Boolean discontinued, List<Stage> stage) {
         setTitle(title);
         setDiscontinued(discontinued);
         setStage(stage);
@@ -69,11 +70,11 @@ public class Process {
         this.title = title;
     }
 
-    public Set<Stage> getStage() {
+    public List<Stage> getStage() {
         return stage;
     }
 
-    public void setStage(Set<Stage> stage) {
+    public void setStage(List<Stage> stage) {
         this.stage = stage;
     }
 

@@ -1,10 +1,12 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stage;
+import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptions;
 
-import net.yorksolutions.emilymilldrumcapstonebe.process.ProcessDTO;
+import java.util.List;
 
 public class StageDTO  {
-    //public Integer processId;
+    public Integer processId;
     public String question;
     public Integer stageOrder;
     public String type;
+    public List<StageOptions> stageOptions;
 }

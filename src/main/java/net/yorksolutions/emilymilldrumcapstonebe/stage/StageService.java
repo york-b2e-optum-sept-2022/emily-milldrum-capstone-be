@@ -1,9 +1,12 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stage;
 
+import net.yorksolutions.emilymilldrumcapstonebe.process.ProcessRepository;
+import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
 
@@ -11,23 +14,36 @@ import java.util.stream.StreamSupport;
 public class StageService {
 
     StageRepository stageRepository;
+    ProcessRepository processRepository;
 
-    public StageService(StageRepository stageRepository) {
+    public StageService(StageRepository stageRepository, ProcessRepository processRepository) {
         this.stageRepository = stageRepository;
+        this.processRepository = processRepository;
     }
 
     public Stage create(StageDTO requestDTO) {
+
         try {
-            Stage stage = new Stage();
-            stage.setQuestion(requestDTO.question);
-            stage.setStageOrder(requestDTO.stageOrder);
-            stage.setType(requestDTO.type);
-            return this.stageRepository.save(
+            Optional<Processes> optProc = this.processRepository.findById(requestDTO.processId);
+            if(!optProc.isPresent()) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            }
+
+            Stage result = this.stageRepository.save(
                     new Stage(
-                            //requestDTO.processId,
-                            stage.getQuestion(),
-                            stage.getStageOrder(),
-                            stage.getType()));
+                            optProc.get(),
+                            requestDTO.question,
+                            requestDTO.stageOrder,
+                            requestDTO.type,
+                            requestDTO.stageOptions));
+//            Processes thisProc = optProc.get();
+//            List<Stage> stageList = thisProc.getStage();
+//            stageList.add(result);
+//
+//            this.processRepository.save(thisProc);
+
+            return result;
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
