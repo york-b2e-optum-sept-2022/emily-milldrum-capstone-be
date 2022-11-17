@@ -2,6 +2,62 @@ POST http://localhost:8080/api/stage/
 Content-Type: application/json
 
     {
+      "processId": 111,
+      "question": "Cake?",
+      "stageOrder": 222,
+      "type": "boolean",
+      "stageOptions": []
+    }
+
+<> 2022-11-17T100654.500.json
+
+###
+
+POST http://localhost:8080/api/stage/
+Content-Type: application/json
+
+    {
+      "processId": 111,
+      "question": "Cake?",
+      "stageOrder": 222,
+      "type": "boolean"
+    }
+
+<> 2022-11-17T100620.500.json
+
+###
+
+POST http://localhost:8080/api/stage/
+Content-Type: application/json
+
+{
+  "processId": 111,
+  "question": "WHY",
+  "stageOrder": 222,
+  "type": "boolean"
+}
+
+<> 2022-11-17T100528.500.json
+
+###
+
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "coffee",
+  "discontinued": false,
+  "stage": []
+}
+
+<> 2022-11-17T100453.200.json
+
+###
+
+POST http://localhost:8080/api/stage/
+Content-Type: application/json
+
+    {
       "processId": 99,
       "question": "Cake?",
       "stageOrder": 222,
@@ -847,62 +903,6 @@ Content-Type: application/json
 }
 
 <> 2022-11-15T221841.200.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-{
-  "processId": 0,
-  "question": "WHY",
-  "order": 2,
-  "type": "boolean"
-}
-
-<> 2022-11-15T221829.200.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-{
-  "processId": 0,
-  "question": "WHY",
-  "order": 2,
-  "type": "boolean"
-}
-
-<> 2022-11-15T221825.200.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-{
-  "processId": "0",
-  "question": "WHY",
-  "order": "2",
-  "type": "boolean"
-}
-
-<> 2022-11-15T221409.200.json
-
-###
-
-POST http://localhost:8080/api/stage/
-Content-Type: application/json
-
-{
-  "processId": "0",
-  "question": "WHY",
-  "order": "2",
-  "type": "boolean"
-}
-
-<> 2022-11-15T220155.200.json
 
 ###
 

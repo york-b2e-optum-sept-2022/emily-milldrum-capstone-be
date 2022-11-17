@@ -16,9 +16,10 @@ public class StageService {
     StageRepository stageRepository;
     ProcessRepository processRepository;
 
-    public StageService(StageRepository stageRepository, ProcessRepository processRepository) {
+    public StageService(StageRepository stageRepository//, ProcessRepository processRepository
+    ) {
         this.stageRepository = stageRepository;
-        this.processRepository = processRepository;
+       // this.processRepository = processRepository;
     }
 
     public Stage create(StageDTO requestDTO) {
@@ -36,11 +37,11 @@ public class StageService {
                             requestDTO.stageOrder,
                             requestDTO.type,
                             requestDTO.stageOptions));
-//            Processes thisProc = optProc.get();
-//            List<Stage> stageList = thisProc.getStage();
-//            stageList.add(result);
-//
-//            this.processRepository.save(thisProc);
+            Processes thisProc = optProc.get();
+            List<Stage> stageList = thisProc.getStage();
+            stageList.add(result);
+
+            this.processRepository.save(thisProc);
 
             return result;
 

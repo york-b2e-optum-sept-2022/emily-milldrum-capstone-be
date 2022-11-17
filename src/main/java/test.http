@@ -29,10 +29,11 @@ POST http://localhost:8080/api/stage/
 Content-Type: application/json
 
     {
-      "processId": 99,
+      "processId": 111,
       "question": "Cake?",
       "stageOrder": 222,
-      "type": "boolean"
+      "type": "boolean",
+      "stageOptions": []
     }
 
 ###
@@ -40,7 +41,7 @@ POST http://localhost:8080/api/stage/
 Content-Type: application/json
 
 {
-  "processId": 5,
+  "processId": 111,
   "question": "WHY",
   "stageOrder": 222,
   "type": "boolean"
