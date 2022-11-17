@@ -1,25 +1,23 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stage;
 
-import net.yorksolutions.emilymilldrumcapstonebe.process.ProcessRepository;
 import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
+import net.yorksolutions.emilymilldrumcapstonebe.process.ProcessesRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.StreamSupport;
 
 @Service
 public class StageService {
 
     StageRepository stageRepository;
-    ProcessRepository processRepository;
+    ProcessesRepository processRepository;
 
-    public StageService(StageRepository stageRepository//, ProcessRepository processRepository
+    public StageService(StageRepository stageRepository, ProcessesRepository processRepository
     ) {
         this.stageRepository = stageRepository;
-       // this.processRepository = processRepository;
+        this.processRepository = processRepository;
     }
 
 //    public Stage create(StageDTO requestDTO) {
@@ -52,18 +50,19 @@ public class StageService {
 //            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 //        }
 //    }
-
     public Stage create(StageDTO requestDTO) {
-//        Optional<Processes> optProc = this.processRepository.findById(requestDTO.processId);
-//        if(optProc.isEmpty()) {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-//        }
+        Optional<Processes> optProc = this.processRepository.findById(requestDTO.processId);
+        if(optProc.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
         try {
             return this.stageRepository.save(
                     new Stage(
+                            optProc.get(),
                             requestDTO.question,
                             requestDTO.stageOrder,
-                            requestDTO.type));
+                            requestDTO.type,
+                            requestDTO.stageOptions));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

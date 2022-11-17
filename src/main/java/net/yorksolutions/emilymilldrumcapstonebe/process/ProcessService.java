@@ -7,24 +7,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ProcessService {
 
-    ProcessRepository processRepository;
+    ProcessesRepository processesRepository;
     StageRepository stageRepository;
     StageService stageService;
 
-    public ProcessService(ProcessRepository processRepository, StageService stageService) {
-        this.processRepository = processRepository;
+    public ProcessService(ProcessesRepository processesRepository, StageRepository stageRepository) {
+        this.processesRepository = processesRepository;
         this.stageRepository = stageRepository;
     }
 
     public Processes create(ProcessDTO requestDTO) {
         try {
-            //TODO FIGURE OUT HOW TO SAVE STAGES TO PROCESSES
             Processes newProc = new Processes(requestDTO.title, requestDTO.discontinued, requestDTO.stage);
             //Proccesses newProc = new Processes();
 //            System.out.println(requestDTO.stage.toString());
@@ -42,7 +40,7 @@ public class ProcessService {
 //                this.processRepository.save(processes);
                 newProc.getStage().add(this.stageRepository.save(this.createStage(stage)));
             }
-            return this.processRepository.save(new Processes(requestDTO.title, requestDTO.discontinued, requestDTO.stage));
+            return this.processesRepository.save(new Processes(requestDTO.title, requestDTO.discontinued, requestDTO.stage));
 
 //
         } catch (Exception e) {
@@ -60,15 +58,15 @@ public class ProcessService {
     }
 
     public Iterable<Processes> getAllProcesses() {
-        return processRepository.findAll();
+        return processesRepository.findAll();
     }
 
     public void delete(Integer productId) {
-        this.processRepository.deleteById(productId);
+        this.processesRepository.deleteById(productId);
     }
 
     public Processes update(ProcessUpdateDTO requestDTO) {
-        Optional<Processes> processOpt = this.processRepository.findById(requestDTO.id);
+        Optional<Processes> processOpt = this.processesRepository.findById(requestDTO.id);
         if(processOpt.isEmpty()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
@@ -84,7 +82,7 @@ public class ProcessService {
 //        //TODO FIX this here for BE testing
 //        process.setStage(requestDTO.stage);
 
-        return this.processRepository.save(processes);
+        return this.processesRepository.save(processes);
     }
 
     public Process createAll(ProcessDTO requestDTO) {
