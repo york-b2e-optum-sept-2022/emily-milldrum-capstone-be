@@ -37,6 +37,12 @@ public class Stage {
         setStageOrder(stageOrder);
         setType(type);
     }
+    public Stage(String question, Integer stageOrder, String type, List<StageOptions> stageOptions) {
+        setQuestion(question);
+        setStageOrder(stageOrder);
+        setType(type);
+        setStageOptions(stageOptions);
+    }
 
     public Integer getId() {
         return id;
@@ -45,7 +51,6 @@ public class Stage {
     public void setId(Integer id) {
         this.id = id;
     }
-
 
 //    public Integer getProcessId() {
 //        return processId;
@@ -79,11 +84,11 @@ public class Stage {
         this.type = type;
     }
 
-//    public Set<StageOptions> getStageOptions() {
-//        return stageOptions;
-//    }
-//
-//    public void setStageOptions(Set<StageOptions> stageOptions) {
-//        this.stageOptions = stageOptions;
-//    }
+    public List<StageOptions> getStageOptions() {
+        return stageOptions;
+    }
+
+    public void setStageOptions(List<StageOptions> stageOptions) {
+        this.stageOptions = stageOptions;
+    }
 }

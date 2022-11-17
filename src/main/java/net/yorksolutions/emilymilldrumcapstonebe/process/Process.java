@@ -28,17 +28,20 @@ public class Process {
     public Process(){
         setId(0);
         setTitle("Title");
-        //setStage(null);
+        setStage(null);
     }
 //    public Process(Set<Stage> stage){
 //        setStage(stage);
 //    }
-    public Process(String title, Boolean discontinued
-                  // Set<Stage> stage
-    ){
+    public Process(String title, Boolean discontinued){
         setTitle(title);
         setDiscontinued(discontinued);
-       // setStage(stage);
+    }
+
+    public Process(String title, Boolean discontinued, Set<Stage> stage) {
+        setTitle(title);
+        setDiscontinued(discontinued);
+        setStage(stage);
     }
 
     //setters & getters

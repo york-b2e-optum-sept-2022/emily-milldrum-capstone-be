@@ -7,17 +7,10 @@ Content-Type: application/json
   "discontinued": false,
   "stage": [
     {
-      "id": 1,
-      "question": "test1",
-      "stageOrder": 1,
-      "type": "textbox"
-    },
-      {
-        "id": 2,
-        "question": "test2",
-        "stageOrder": 1,
-        "type": "textbox"
-      }
+      "question": "WHY",
+      "stageOrder": 222,
+      "type": "boolean"
+    }
   ]
 }
 

@@ -27,16 +27,14 @@ public class ProcessService {
             Process process = new Process(requestDTO.title, requestDTO.discontinued);
             processRepository.save(process);
             for (Stage stage : requestDTO.stage){
-                Stage newStage = stageService.create(stage);
-                process.getStage().add(newStage);
+                stageRepository.save(stage);
+
                 processRepository.save(process);
             }
             return processRepository.save(process);
 
-            return this.processRepository.save(
-                    new Process(requestDTO.title, requestDTO.discontinued
-                          //  requestDTO.stage
-                    ));
+//            return this.processRepository.save(
+//                    new Process(requestDTO.title, requestDTO.discontinued, requestDTO.stage));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

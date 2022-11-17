@@ -18,12 +18,16 @@ public class StageService {
 
     public Stage create(StageDTO requestDTO) {
         try {
+            Stage stage = new Stage();
+            stage.setQuestion(requestDTO.question);
+            stage.setStageOrder(requestDTO.stageOrder);
+            stage.setType(requestDTO.type);
             return this.stageRepository.save(
                     new Stage(
                             //requestDTO.processId,
-                            requestDTO.question,
-                            requestDTO.stageOrder,
-                            requestDTO.type));
+                            stage.getQuestion(),
+                            stage.getStageOrder(),
+                            stage.getType()));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
