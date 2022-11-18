@@ -5,7 +5,6 @@ import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptions;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 //these are the questions
@@ -15,8 +14,8 @@ public class Stage {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Processes processes;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private Processes processes;
     private String question;
     private Integer stageOrder;
     private String type;
@@ -44,13 +43,13 @@ public class Stage {
         setStageOptions(stageOptions);
     }
 
-    public Stage(Processes processes, String question, Integer stageOrder, String type, List<StageOptions> stageOptions) {
-        setProcesses(processes);
-        setQuestion(question);
-        setStageOrder(stageOrder);
-        setType(type);
-        setStageOptions(stageOptions);
-    }
+//    public Stage(Processes processes, String question, Integer stageOrder, String type, List<StageOptions> stageOptions) {
+//        setProcesses(processes);
+//        setQuestion(question);
+//        setStageOrder(stageOrder);
+//        setType(type);
+//        setStageOptions(stageOptions);
+//    }
 
 
     public Integer getId() {
@@ -61,6 +60,7 @@ public class Stage {
         this.id = id;
     }
 
+/*
     public Processes getProcesses() {
         return processes;
     }
@@ -68,6 +68,7 @@ public class Stage {
     public void setProcesses(Processes processes) {
         this.processes = processes;
     }
+*/
 
     public String getQuestion() {
         return question;

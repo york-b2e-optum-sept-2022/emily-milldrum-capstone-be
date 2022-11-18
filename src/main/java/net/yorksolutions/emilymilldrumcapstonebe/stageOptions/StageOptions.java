@@ -3,10 +3,7 @@ package net.yorksolutions.emilymilldrumcapstonebe.stageOptions;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @RequestMapping("/api/stageOptions")
