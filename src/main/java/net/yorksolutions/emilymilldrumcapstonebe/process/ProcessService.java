@@ -81,10 +81,8 @@ public class ProcessService {
 
     public void delete(Integer processId) {
         Optional<Processes> processOpt = getOpt(processId);
-
-        for (Stage stage : processOpt.get().getStage()){
-            processOpt.get().removeStage(stage);
-        }
+        Processes process = processOpt.get();
+        process.getStage().removeAll(process.getStage());
 //
         this.processesRepository.deleteById(processId);
     }
