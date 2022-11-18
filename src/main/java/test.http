@@ -3,12 +3,12 @@ POST http://localhost:8080/api/process/
 Content-Type: application/json
 
 {
-  "title": "ABEST CAKE!!!",
+  "title": "All Stage Options",
   "discontinued": false,
   "stage": [
     {
       "question": "NEW Cake?!!!",
-      "stageOrder": 2,
+      "stageOrder": 3,
       "type": "Multiple Choice: Single",
       "stageOptions": [
         {
@@ -24,6 +24,28 @@ Content-Type: application/json
       "stageOrder": 1,
       "type": "Textbox",
       "stageOptions": []
+    },
+    {
+      "question": "Best cake?!!!",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    },
+    {
+      "question": "NEW Cake?!!!",
+      "stageOrder": 4,
+      "type": "Multiple Choice: Multiple",
+      "stageOptions": [
+        {
+          "option": "yes"
+        },
+        {
+          "option": "no"
+        },
+        {
+          "option": "definitely"
+        }
+      ]
     }
   ]
 }
