@@ -21,7 +21,8 @@ public class Processes {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     //@OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinTable(name="processes_stage")
+    //@JoinTable(name="processes_stage")
+    @JoinColumn(name="processes_id")
     private List<Stage> stage;
 
 
@@ -30,9 +31,6 @@ public class Processes {
         setTitle("Title");
         setStage(null);
     }
-//    public Process(Set<Stage> stage){
-//        setStage(stage);
-//    }
     public Processes(String title, Boolean discontinued){
         setTitle(title);
         setDiscontinued(discontinued);
@@ -42,6 +40,10 @@ public class Processes {
         setTitle(title);
         setDiscontinued(discontinued);
         setStage(stage);
+    }
+
+    public void removeStage(Stage incStage){
+        stage.remove(incStage);
     }
 
     //setters & getters

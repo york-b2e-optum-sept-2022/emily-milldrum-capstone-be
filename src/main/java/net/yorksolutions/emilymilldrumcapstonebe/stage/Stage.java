@@ -25,7 +25,8 @@ public class Stage {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    @JoinTable(name="stage_stage_options")
+    //@JoinTable(name="stage_stage_options")
+    @JoinColumn(name="stage_id")
     private List<StageOptions> stageOptions;
 
     public Stage() {

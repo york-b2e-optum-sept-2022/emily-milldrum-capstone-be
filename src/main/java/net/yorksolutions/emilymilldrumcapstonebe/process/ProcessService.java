@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -47,6 +49,12 @@ public class ProcessService {
             this.processesRepository.save(newProc);
             Stage newStage = new Stage();
             for (Stage stage : requestDTO.stage){
+                if(newProc.getStage() == null){
+                    List<Stage> newList = new ArrayList<Stage>();
+                    newList.add(this.stageRepository.save(this.stageService.createStage(stage)));
+                    newProc.setStage(newList);
+                }
+                //TODO fix null pointer exception
                 newProc.getStage().add(this.stageRepository.save(this.stageService.createStage(stage)));
             }
             return this.processesRepository.save(newProc);
@@ -62,8 +70,23 @@ public class ProcessService {
         return processesRepository.findAll();
     }
 
-    public void delete(Integer productId) {
-        this.processesRepository.deleteById(productId);
+    public Optional<Processes> getOpt(Integer id){
+        Optional<Processes> processOpt = this.processesRepository.findById(id);
+        if(processOpt.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+//
+        return processOpt;
+    }
+
+    public void delete(Integer processId) {
+        Optional<Processes> processOpt = getOpt(processId);
+
+        for (Stage stage : processOpt.get().getStage()){
+            processOpt.get().removeStage(stage);
+        }
+//
+        this.processesRepository.deleteById(processId);
     }
 
     public Processes update(ProcessUpdateDTO requestDTO) {
@@ -87,8 +110,8 @@ public class ProcessService {
     }
 
     public Process createAll(ProcessDTO requestDTO) {
+
         return null;
     }
-
 
 }

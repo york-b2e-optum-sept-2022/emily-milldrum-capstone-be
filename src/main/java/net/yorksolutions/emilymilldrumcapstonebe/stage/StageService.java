@@ -83,7 +83,7 @@ public class StageService {
         newStage.setType(stage.getType());
 
              this.stageRepository.save(newStage);
-             StageOptions newStageOpt = new StageOptions();
+             //StageOptions newStageOpt = new StageOptions();
              for (StageOptions option : stage.getStageOptions()){
                  newStage.getStageOptions().add(this.optionsRepository.save(this.optionsService.createOption(option)));
              }
@@ -99,8 +99,22 @@ public class StageService {
         return stageRepository.findAll();
     }
 
-    public void delete(Integer stageId) {
-        this.stageRepository.deleteById(stageId);
+    public void delete(Integer id) {
+
+        Optional <Stage> stageOpt = this.stageRepository.findById(id);
+        if (stageOpt.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }else {
+            Stage stage = stageOpt.get();
+            Optional <Processes> procOpt = this.processRepository.findByStage(stage);
+            if (procOpt.isEmpty()){
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            }
+            Stage stageFormat = stageOpt.get();
+            Processes processes = procOpt.get();
+            processes.removeStage(stageFormat);
+            this.stageRepository.delete(stageFormat);
+        }
     }
 
 
