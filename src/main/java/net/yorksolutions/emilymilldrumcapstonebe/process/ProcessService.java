@@ -1,14 +1,9 @@
 package net.yorksolutions.emilymilldrumcapstonebe.process;
-
-import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
 import net.yorksolutions.emilymilldrumcapstonebe.stage.StageRepository;
 import net.yorksolutions.emilymilldrumcapstonebe.stage.StageService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,40 +18,9 @@ public class ProcessService {
         this.stageRepository = stageRepository;
     }
 
-    public Processes createBasic(ProcessDTO requestDTO) {
-        Processes newProc = new Processes(requestDTO.title, requestDTO.discontinued, requestDTO.stage);
-       return this.processesRepository.save(newProc);
-    }
-//    public Processes create(ProcessDTO requestDTO) {
-//        try {
-//            Processes newProc = new Processes(requestDTO.title, requestDTO.discontinued, requestDTO.stage);
-//            //this.processesRepository.save(newProc);
-//
-//            //Stage newStage = new Stage();
-//            for (Stage stage : requestDTO.stage){
-//                newProc.getStage().add(this.stageRepository.save(this.stageService.createStage(stage)));
-//            }
-//            return this.processesRepository.save(newProc);
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
     public Processes create(ProcessDTO requestDTO) {
         try {
             Processes newProc = new Processes(requestDTO.title, requestDTO.discontinued, requestDTO.stage);
-//
-            this.processesRepository.save(newProc);
-            Stage newStage = new Stage();
-            for (Stage stage : requestDTO.stage){
-                if(newProc.getStage() == null){
-                    List<Stage> newList = new ArrayList<Stage>();
-                    newList.add(this.stageRepository.save(this.stageService.createStage(stage)));
-                    newProc.setStage(newList);
-                }
-                //TODO fix null pointer exception
-                newProc.getStage().add(this.stageRepository.save(this.stageService.createStage(stage)));
-            }
             return this.processesRepository.save(newProc);
 
 //
@@ -64,7 +28,6 @@ public class ProcessService {
             throw new RuntimeException(e);
         }
     }
-
 
     public Iterable<Processes> getAllProcesses() {
         return processesRepository.findAll();
@@ -92,24 +55,13 @@ public class ProcessService {
         if(processOpt.isEmpty()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-//
-//        for(final Stage stage : requestDTO.stage){
-//            this.stageRepository.save(stage);
-//        }
+
         Processes processes = processOpt.get();
         processes.setTitle(requestDTO.title);
         processes.setDiscontinued(requestDTO.discontinued);
-//        process.setStage(requestDTO.stage);
-//
-//        //TODO FIX this here for BE testing
-//        process.setStage(requestDTO.stage);
+        processes.setStage(requestDTO.stage);
 
         return this.processesRepository.save(processes);
-    }
-
-    public Process createAll(ProcessDTO requestDTO) {
-
-        return null;
     }
 
 }

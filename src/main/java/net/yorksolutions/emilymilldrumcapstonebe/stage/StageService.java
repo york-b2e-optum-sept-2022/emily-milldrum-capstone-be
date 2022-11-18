@@ -83,7 +83,7 @@ public class StageService {
         newStage.setType(stage.getType());
 
              this.stageRepository.save(newStage);
-             //StageOptions newStageOpt = new StageOptions();
+         //    StageOptions newStageOpt = new StageOptions();
              for (StageOptions option : stage.getStageOptions()){
                  newStage.getStageOptions().add(this.optionsRepository.save(this.optionsService.createOption(option)));
              }

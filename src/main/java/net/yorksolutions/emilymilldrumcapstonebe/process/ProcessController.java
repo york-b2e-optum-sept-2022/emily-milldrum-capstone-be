@@ -12,11 +12,6 @@ public class ProcessController {
         this.processService = processService;
     }
 
-    @PostMapping("/test/")
-    public Processes createBasic(@RequestBody ProcessDTO requestDTO){
-        return this.processService.createBasic(requestDTO);
-    }
-
     @PostMapping
     public Processes create(@RequestBody ProcessDTO requestDTO){
         return this.processService.create(requestDTO);
