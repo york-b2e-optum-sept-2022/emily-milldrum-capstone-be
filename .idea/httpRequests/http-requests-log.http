@@ -23,6 +23,35 @@ Content-Type: application/json
   ]
 }
 
+<> 2022-11-19T152337.200.json
+
+###
+
+POST http://localhost:8080/api/response/
+Content-Type: application/json
+
+{
+  "processes": {
+    "id": 370,
+    "title": "simple",
+    "discontinued": false,
+    "stage": [
+      {
+        "id": 371,
+        "question": "prompt",
+        "stageOrder": 3,
+        "type": "Textbox"
+      }
+    ]
+  },
+  "answer": [
+    {
+      "stage": null,
+      "answer": "test"
+    }
+  ]
+}
+
 <> 2022-11-19T151842.200.json
 
 ###
@@ -1647,27 +1676,6 @@ Content-Type: application/json
 }
 
 <> 2022-11-17T134017.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "NEW CAKE!",
-  "discontinued": false,
-  "stage": [
-    {
-      "processId": 112,
-      "question": "NEW Cake?!",
-      "stageOrder": 2,
-      "type": "Boolean",
-      "stageOptions": []
-    }
-  ]
-}
-
-<> 2022-11-17T133449.500.json
 
 ###
 

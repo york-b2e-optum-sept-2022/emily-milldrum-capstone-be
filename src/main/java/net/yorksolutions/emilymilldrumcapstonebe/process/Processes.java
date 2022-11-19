@@ -1,4 +1,5 @@
 package net.yorksolutions.emilymilldrumcapstonebe.process;
+import net.yorksolutions.emilymilldrumcapstonebe.response.Response;
 import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
 
 
@@ -24,6 +25,11 @@ public class Processes {
     private List<Stage> stage;
 
 
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name="processes_id")
+//    List<Response> responses;
+
+
     public Processes(){
         setId(0);
         setTitle("Title");
@@ -35,6 +41,11 @@ public class Processes {
     }
 
     public Processes(String title, Boolean discontinued, List<Stage> stage) {
+        setTitle(title);
+        setDiscontinued(discontinued);
+        setStage(stage);
+    }
+    public Processes(String title, Boolean discontinued, List<Stage> stage, List<Response> responses) {
         setTitle(title);
         setDiscontinued(discontinued);
         setStage(stage);
@@ -77,5 +88,12 @@ public class Processes {
     public void setStage(List<Stage> stage) {
         this.stage = stage;
     }
-
+//
+//    public List<Response> getResponses() {
+//        return responses;
+//    }
+//
+//    public void setResponses(List<Response> responses) {
+//        this.responses = responses;
+//    }
 }

@@ -26,4 +26,8 @@ public class ResponseService {
             throw new RuntimeException(e);
         }
     }
+
+    public Iterable<Response> getById(Integer processId) {
+        return this.responseRepository.findAllByProcesses_Id(processId);
+    }
 }

@@ -1,4 +1,5 @@
 package net.yorksolutions.emilymilldrumcapstonebe.response;
+import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,4 +17,8 @@ public class ResponseController {
         return this.responseService.create(requestDTO);
     }
 
+    @GetMapping("/{processId}")
+    public Iterable<Response> get(@PathVariable Integer processId){
+        return this.responseService.getById(processId);
+    }
 }
