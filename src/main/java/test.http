@@ -51,7 +51,24 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8080/api/process/test/
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "id": 370,
+  "title": "simple",
+  "discontinued": false,
+  "stage": [
+    {
+      "id": 371,
+      "question": "prompt",
+      "stageOrder": 3,
+      "type": "Textbox"
+    }
+  ]
+}
+###
+POST http://localhost:8080/api/process/
 Content-Type: application/json
 
 {
@@ -81,4 +98,33 @@ Content-Type: application/json
   "stageOrder": 2,
   "type": "boolean"
 }
+
+###
+POST http://localhost:8080/api/response/
+Content-Type: application/json
+
+
+
+{
+  "processes": {
+    "id": 370,
+    "title": "simple",
+    "discontinued": false,
+    "stage": [
+      {
+        "id": 371,
+        "question": "prompt",
+        "stageOrder": 3,
+        "type": "Textbox"
+      }
+    ]
+  },
+  "answer": [
+    {
+      "stage": null,
+      "answer": "test"
+    }
+  ]
+}
+
 

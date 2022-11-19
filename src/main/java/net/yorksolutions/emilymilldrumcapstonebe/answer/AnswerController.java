@@ -5,9 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/process")
+@RequestMapping("/api/answer")
 @CrossOrigin
 public class AnswerController {
 
-    //TODO
 }
