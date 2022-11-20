@@ -3,47 +3,56 @@ POST http://localhost:8080/api/process/
 Content-Type: application/json
 
 {
-  "title": "All Stage Options",
+  "title": "Site Survey",
   "discontinued": false,
   "stage": [
     {
-      "question": "NEW Cake?!!!",
-      "stageOrder": 3,
+      "question": "How would you rate this site? (1 lowest, 5 highest)",
+      "stageOrder": 1,
       "type": "Multiple Choice: Single",
       "stageOptions": [
         {
-          "option": "yes"
+          "option": "1"
         },
         {
-          "option": "no"
+          "option": "2"
+        },
+        {
+          "option": "3"
+        },
+        {
+          "option": "4"
+        },
+        {
+          "option": "5"
         }
       ]
     },
     {
-      "question": "OLD Cake?!!!",
-      "stageOrder": 1,
-      "type": "Textbox",
-      "stageOptions": []
-    },
-    {
-      "question": "Best cake?!!!",
+      "question": "Would you visit again?",
       "stageOrder": 2,
       "type": "Boolean",
       "stageOptions": []
     },
     {
-      "question": "NEW Cake?!!!",
+      "question": "Please leave any feedback here",
+      "stageOrder": 3,
+      "type": "Textbox",
+      "stageOptions": []
+    },
+    {
+      "question": "What did this site do well?",
       "stageOrder": 4,
       "type": "Multiple Choice: Multiple",
       "stageOptions": [
         {
-          "option": "yes"
+          "option": "Managed Errors"
         },
         {
-          "option": "no"
+          "option": "Frontend"
         },
         {
-          "option": "definitely"
+          "option": "Backend"
         }
       ]
     }

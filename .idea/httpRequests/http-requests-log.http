@@ -1,3 +1,96 @@
+POST http://localhost:8080/api/process/
+Content-Type: application/json
+
+{
+  "title": "Site Survey",
+  "discontinued": false,
+  "stage": [
+    {
+      "question": "How would you rate this site? (1 lowest, 5 highest)",
+      "stageOrder": 1,
+      "type": "Multiple Choice: Single",
+      "stageOptions": [
+        {
+          "option": "1"
+        },
+        {
+          "option": "2"
+        },
+        {
+          "option": "3"
+        },
+        {
+          "option": "4"
+        },
+        {
+          "option": "5"
+        }
+      ]
+    },
+    {
+      "question": "Would you visit again?",
+      "stageOrder": 2,
+      "type": "Boolean",
+      "stageOptions": []
+    },
+    {
+      "question": "Please leave any feedback here",
+      "stageOrder": 3,
+      "type": "Textbox",
+      "stageOptions": []
+    },
+    {
+      "question": "What did this site do well?",
+      "stageOrder": 4,
+      "type": "Multiple Choice: Multiple",
+      "stageOptions": [
+        {
+          "option": "Managed Errors"
+        },
+        {
+          "option": "Frontend"
+        },
+        {
+          "option": "Backend"
+        }
+      ]
+    }
+  ]
+}
+
+<> 2022-11-20T002610.200.json
+
+###
+
+POST http://localhost:8080/api/response/
+Content-Type: application/json
+
+{
+  "processes": {
+    "id": 370,
+    "title": "simple",
+    "discontinued": false,
+    "stage": [
+      {
+        "id": 371,
+        "question": "prompt",
+        "stageOrder": 3,
+        "type": "Textbox"
+      }
+    ]
+  },
+  "answer": [
+    {
+      "stage": null,
+      "answer": "test"
+    }
+  ]
+}
+
+<> 2022-11-19T225816.200.json
+
+###
+
 POST http://localhost:8080/api/response/
 Content-Type: application/json
 
@@ -1636,46 +1729,6 @@ Content-Type: application/json
 }
 
 <> 2022-11-17T135508.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "NEW CAKE!",
-  "discontinued": false,
-  "stage": [
-    {
-      "question": "NEW Cake?!",
-      "stageOrder": 2,
-      "type": "Boolean",
-      "stageOptions": []
-    }
-  ]
-}
-
-<> 2022-11-17T135447.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "NEW CAKE!",
-  "discontinued": false,
-  "stage": [
-    {
-      "question": "NEW Cake?!",
-      "stageOrder": 2,
-      "type": "Boolean",
-      "stageOptions": []
-    }
-  ]
-}
-
-<> 2022-11-17T134017.500.json
 
 ###
 
