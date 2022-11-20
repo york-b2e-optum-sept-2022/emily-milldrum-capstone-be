@@ -1,7 +1,13 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stageOptions;
 
+import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
 import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Optional;
 
 @Service
 public class StageOptionsService {
@@ -13,7 +19,11 @@ public class StageOptionsService {
     }
 
     public void delete(Integer optId) {
-        this.stageOptionsRepository.deleteById(optId);
+        try {
+            this.stageOptionsRepository.deleteById(optId);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Iterable<StageOptions> getAllOptions() {
@@ -24,25 +34,14 @@ public class StageOptionsService {
         return this.stageOptionsRepository.save(option);
     }
 
+    public StageOptions update(StageOptionsUpdateDTO requestDTO) {
 
-//    public StageOptions create(StageOptionsDTO requestDTO) {
-//        try {
-//            return this.stageOptionsRepository.save(
-//                    new Stage(
-//                            //requestDTO.processId,
-//                            requestDTO.
-//                            //TODO FIX ORDER
-//                            requestDTO.stageOrder,
-//                            requestDTO.type));
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-//        return this.stageOptionsRepository.save(requestDTO);
-//    }
-
-//TODO
-
-//    public Stage update(StageOptionDTO requestDTO) {
-//    }
+        Optional<StageOptions> stageOpt = this.stageOptionsRepository.findById(requestDTO.id);
+        if(stageOpt.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        StageOptions option = stageOpt.get();
+        option.setOption(requestDTO.option);
+        return this.stageOptionsRepository.save(option);
+    }
 }

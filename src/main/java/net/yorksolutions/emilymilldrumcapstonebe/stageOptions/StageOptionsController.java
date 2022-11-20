@@ -16,30 +16,19 @@ public class StageOptionsController {
         this.stageOptionsService = stageOptionsService;
     }
 
-//    @PostMapping
-//    public StageOptions create(@RequestBody StageOptionsDTO requestDTO){
-//
-//        return this.stageOptionsService.create(requestDTO);
-//    }
-
     @GetMapping
     Iterable<StageOptions> get() {
-
         return this.stageOptionsService.getAllOptions();
     }
-    //
+
     @DeleteMapping("/{stageId}")
     public void delete(@PathVariable Integer stageId){
-
         this.stageOptionsService.delete(stageId);
     }
 
-
-    //TODO
-//    @PutMapping
-//    public Stage update(@RequestBody StageOptionsUpdateDTO requestDTO){
-//
-//        return this.stageOptionsService.update(requestDTO);
-//    }
+    @PutMapping
+    public StageOptions update(@RequestBody StageOptionsUpdateDTO requestDTO){
+        return this.stageOptionsService.update(requestDTO);
+    }
 
 }
