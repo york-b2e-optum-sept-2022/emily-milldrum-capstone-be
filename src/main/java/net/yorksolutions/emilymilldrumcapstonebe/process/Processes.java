@@ -17,18 +17,14 @@ public class Processes {
     private String title;
     private Boolean discontinued;
 
-
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    //@OnDelete(action = OnDeleteAction.CASCADE)
-    //@JoinTable(name="processes_stage")
     @JoinColumn(name="processes_id")
     private List<Stage> stage;
 
-
-//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JoinColumn(name="processes_id")
-//    List<Response> responses;
-
+    // saved in case wanted to join column responses to process
+    //    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    //    @JoinColumn(name="processes_id")
+    //    List<Response> responses;
 
     public Processes(){
         setId(0);
@@ -53,6 +49,11 @@ public class Processes {
 
     public void removeStage(Stage incStage){
         stage.remove(incStage);
+    }
+    public void addStage(Stage incStage){
+        List<Stage> list = getStage();
+        list.add(incStage);
+        setStage(list);
     }
 
 
@@ -88,12 +89,5 @@ public class Processes {
     public void setStage(List<Stage> stage) {
         this.stage = stage;
     }
-//
-//    public List<Response> getResponses() {
-//        return responses;
-//    }
-//
-//    public void setResponses(List<Response> responses) {
-//        this.responses = responses;
-//    }
+
 }

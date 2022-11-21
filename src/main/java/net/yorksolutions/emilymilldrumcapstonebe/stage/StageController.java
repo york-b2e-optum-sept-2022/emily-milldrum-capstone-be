@@ -1,4 +1,5 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stage;
+import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,6 +31,10 @@ public class StageController {
         return this.stageService.update(requestDTO);
     }
 
+    @PostMapping("/addToProcess/")
+    public Processes addToProcess(@RequestBody StageAddDTO requestDTO){
+        return this.stageService.addToProcess(requestDTO);
+    }
 //    @GetMapping("/byId/{processId}")
 //    Iterable<Stage> getById(@PathVariable Integer processId) {
 //        return this.stageService.findStagesByProcessId(processId);

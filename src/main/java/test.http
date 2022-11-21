@@ -109,6 +109,30 @@ Content-Type: application/json
 }
 
 ###
+POST http://localhost:8080/api/stage/addToProcess/
+Content-Type: application/json
+
+{
+  "question": "What did this site do well?",
+  "stageOrder": 4,
+  "type": "Multiple Choice: Multiple",
+  "stageOptions": [
+    {
+      "option": "Managed Errors"
+    },
+    {
+      "option": "Frontend"
+    },
+    {
+      "option": "Backend"
+    }
+  ],
+  "processId": 462
+}
+
+
+
+###
 POST http://localhost:8080/api/response/
 Content-Type: application/json
 

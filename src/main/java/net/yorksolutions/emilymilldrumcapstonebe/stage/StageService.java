@@ -1,5 +1,6 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stage;
 
+import net.yorksolutions.emilymilldrumcapstonebe.process.ProcessService;
 import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
 import net.yorksolutions.emilymilldrumcapstonebe.process.ProcessesRepository;
 import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptions;
@@ -15,14 +16,14 @@ import java.util.Optional;
 public class StageService {
 
     StageRepository stageRepository;
-    ProcessesRepository processRepository;
+    ProcessesRepository processesRepository;
     StageOptionsRepository optionsRepository;
     StageOptionsService optionsService;
 
-    public StageService(StageRepository stageRepository, ProcessesRepository processRepository, StageOptionsRepository optionsRepository
+    public StageService(StageRepository stageRepository, ProcessesRepository processesRepository, StageOptionsRepository optionsRepository
     ) {
         this.stageRepository = stageRepository;
-        this.processRepository = processRepository;
+        this.processesRepository = processesRepository;
         this.optionsRepository = optionsRepository;
     }
 
@@ -106,7 +107,7 @@ public class StageService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }else {
             Stage stage = stageOpt.get();
-            Optional <Processes> procOpt = this.processRepository.findByStage(stage);
+            Optional <Processes> procOpt = this.processesRepository.findByStage(stage);
             if (procOpt.isEmpty()){
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
             }
@@ -130,6 +131,23 @@ public class StageService {
             stage.setType(requestDTO.type);
 
         return this.stageRepository.save(stage);
+    }
+
+    public Processes addToProcess(StageAddDTO requestDTO) {
+        Stage stage = new Stage(
+                requestDTO.question,
+                requestDTO.stageOrder,
+                requestDTO.type,
+                requestDTO.stageOptions);
+        this.stageRepository.save(stage);
+        Optional<Processes> processOpt = this.processesRepository.findById(requestDTO.processId);
+        if(processOpt.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        Processes process = processOpt.get();
+
+        process.addStage(stage);
+        return this.processesRepository.save(process);
     }
 
 //    public Iterable<Stage> findStagesByProcessId(Integer processId) {

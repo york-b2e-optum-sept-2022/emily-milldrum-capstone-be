@@ -1,3 +1,78 @@
+POST http://localhost:8080/api/stage/addToProcess/
+Content-Type: application/json
+
+{
+  "question": "What did this site do well?",
+  "stageOrder": 4,
+  "type": "Multiple Choice: Multiple",
+  "stageOptions": [
+    {
+      "option": "Managed Errors"
+    },
+    {
+      "option": "Frontend"
+    },
+    {
+      "option": "Backend"
+    }
+  ],
+  "processId": 462
+}
+
+<> 2022-11-20T225245.200.json
+
+###
+
+PUT http://localhost:8080/api/stage/addToProcess/
+Content-Type: application/json
+
+{
+  "question": "What did this site do well?",
+  "stageOrder": 4,
+  "type": "Multiple Choice: Multiple",
+  "stageOptions": [
+    {
+      "option": "Managed Errors"
+    },
+    {
+      "option": "Frontend"
+    },
+    {
+      "option": "Backend"
+    }
+  ],
+  "processId": 462
+}
+
+<> 2022-11-20T225207.405.json
+
+###
+
+POST http://localhost:8080/api/stage/addToProcess/
+Content-Type: application/json
+
+{
+  "question": "What did this site do well?",
+  "stageOrder": 4,
+  "type": "Multiple Choice: Multiple",
+  "stageOptions": [
+    {
+      "option": "Managed Errors"
+    },
+    {
+      "option": "Frontend"
+    },
+    {
+      "option": "Backend"
+    }
+  ],
+  "processId": 462
+}
+
+<> 2022-11-20T225158.405.json
+
+###
+
 POST http://localhost:8080/api/process/
 Content-Type: application/json
 
@@ -1669,66 +1744,6 @@ Content-Type: application/json
 }
 
 <> 2022-11-17T135706.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "NEW CAKE!!!",
-  "discontinued": false,
-  "stage": [
-    {
-      "question": "NEW Cake?!!!",
-      "stageOrder": 2,
-      "type": "Boolean",
-      "stageOptions": []
-    }
-  ]
-}
-
-<> 2022-11-17T135658.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "NEW CAKE!!!",
-  "discontinued": false,
-  "stage": [
-    {
-      "question": "NEW Cake?!!!",
-      "stageOrder": 2,
-      "type": "Boolean",
-      "stageOptions": []
-    }
-  ]
-}
-
-<> 2022-11-17T135545.500.json
-
-###
-
-POST http://localhost:8080/api/process/
-Content-Type: application/json
-
-{
-  "title": "NEW CAKE!!!",
-  "discontinued": false,
-  "stage": [
-    {
-      "question": "NEW Cake?!!!",
-      "stageOrder": 2,
-      "type": "Boolean",
-      "stageOptions": []
-    }
-  ]
-}
-
-<> 2022-11-17T135508.500.json
 
 ###
 

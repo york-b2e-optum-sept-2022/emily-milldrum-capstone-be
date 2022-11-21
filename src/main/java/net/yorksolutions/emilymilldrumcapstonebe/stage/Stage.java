@@ -1,6 +1,4 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stage;
-
-import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
 import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptions;
 
 import javax.persistence.*;
@@ -44,15 +42,6 @@ public class Stage {
         setStageOptions(stageOptions);
     }
 
-//    public Stage(Processes processes, String question, Integer stageOrder, String type, List<StageOptions> stageOptions) {
-//        setProcesses(processes);
-//        setQuestion(question);
-//        setStageOrder(stageOrder);
-//        setType(type);
-//        setStageOptions(stageOptions);
-//    }
-
-
     public Integer getId() {
         return id;
     }
@@ -60,16 +49,6 @@ public class Stage {
     public void setId(Integer id) {
         this.id = id;
     }
-
-/*
-    public Processes getProcesses() {
-        return processes;
-    }
-
-    public void setProcesses(Processes processes) {
-        this.processes = processes;
-    }
-*/
 
     public String getQuestion() {
         return question;
