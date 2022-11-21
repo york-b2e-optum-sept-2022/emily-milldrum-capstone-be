@@ -19,7 +19,6 @@ public class Answer {
 
     }
     public Answer(String answer) {
-       // setStage(stage);
         setAnswer(answer);
     }
     public Answer(Stage stage, String answer) {
