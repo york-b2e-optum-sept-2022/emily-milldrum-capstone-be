@@ -1,4 +1,7 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stageOptions;
+import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
+import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
+import net.yorksolutions.emilymilldrumcapstonebe.stage.StageAddDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,6 +27,11 @@ public class StageOptionsController {
     @PutMapping
     public StageOptions update(@RequestBody StageOptionsUpdateDTO requestDTO){
         return this.stageOptionsService.update(requestDTO);
+    }
+
+    @PostMapping("/addToStage/")
+    public Stage addToStage(@RequestBody StageOptionsAddDTO requestDTO){
+        return this.stageOptionsService.addToStage(requestDTO);
     }
 
 }

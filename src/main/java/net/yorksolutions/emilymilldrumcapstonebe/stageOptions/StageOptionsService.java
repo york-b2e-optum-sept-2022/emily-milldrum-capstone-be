@@ -1,5 +1,9 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stageOptions;
 
+import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
+import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
+import net.yorksolutions.emilymilldrumcapstonebe.stage.StageAddDTO;
+import net.yorksolutions.emilymilldrumcapstonebe.stage.StageRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -10,9 +14,11 @@ import java.util.Optional;
 public class StageOptionsService {
 
     StageOptionsRepository stageOptionsRepository;
+    StageRepository stageRepository;
 
-    public StageOptionsService(StageOptionsRepository stageOptionsRepository) {
+    public StageOptionsService(StageOptionsRepository stageOptionsRepository, StageRepository stageRepository) {
         this.stageOptionsRepository = stageOptionsRepository;
+        this.stageRepository = stageRepository;
     }
 
     public void delete(Integer optId) {
@@ -51,6 +57,25 @@ public class StageOptionsService {
             StageOptions option = stageOpt.get();
             option.setOption(requestDTO.option);
             return this.stageOptionsRepository.save(option);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //this adds a new stage:choice to an existing stage
+    public Stage addToStage(StageOptionsAddDTO requestDTO) {
+        try {
+            StageOptions stageOption = new StageOptions(
+                    requestDTO.option);
+            this.stageOptionsRepository.save(stageOption);
+            Optional<Stage> stageOpt = this.stageRepository.findById(requestDTO.stageId);
+            if (stageOpt.isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            }
+            Stage stage = stageOpt.get();
+
+            stage.addStageOpt(stageOption);
+            return this.stageRepository.save(stage);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

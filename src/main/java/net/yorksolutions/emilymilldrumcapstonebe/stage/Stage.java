@@ -41,6 +41,16 @@ public class Stage {
         setStageOptions(stageOptions);
     }
 
+    public void removeStageOpt(StageOptions incOpt){
+        stageOptions.remove(incOpt);
+    }
+    public void addStageOpt(StageOptions incOpt){
+        List<StageOptions> list = getStageOptions();
+        list.add(incOpt);
+        setStageOptions(list);
+    }
+
+
     public Integer getId() {
         return id;
     }

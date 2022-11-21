@@ -1,5 +1,6 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stageOptions;
 
+import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,7 +19,7 @@ public class StageOptions {
     public StageOptions(){
 
     }
-
+    //add a stage:choice to an existing stage
     public StageOptions(String option){
         setOption(option);
     }
@@ -38,4 +39,6 @@ public class StageOptions {
     public void setOption(String option) {
         this.option = option;
     }
+
+
 }
