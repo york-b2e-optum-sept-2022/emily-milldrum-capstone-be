@@ -1,8 +1,5 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stageOptions;
 
-import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
-import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -27,21 +24,35 @@ public class StageOptionsService {
     }
 
     public Iterable<StageOptions> getAllOptions() {
-        return this.stageOptionsRepository.findAll();
+        try {
+            return this.stageOptionsRepository.findAll();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public StageOptions createOption(StageOptions option) {
-        return this.stageOptionsRepository.save(option);
+
+        try {
+            return this.stageOptionsRepository.save(option);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public StageOptions update(StageOptionsUpdateDTO requestDTO) {
 
-        Optional<StageOptions> stageOpt = this.stageOptionsRepository.findById(requestDTO.id);
-        if(stageOpt.isEmpty()){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        try {
+
+            Optional<StageOptions> stageOpt = this.stageOptionsRepository.findById(requestDTO.id);
+            if (stageOpt.isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            }
+            StageOptions option = stageOpt.get();
+            option.setOption(requestDTO.option);
+            return this.stageOptionsRepository.save(option);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        StageOptions option = stageOpt.get();
-        option.setOption(requestDTO.option);
-        return this.stageOptionsRepository.save(option);
     }
 }

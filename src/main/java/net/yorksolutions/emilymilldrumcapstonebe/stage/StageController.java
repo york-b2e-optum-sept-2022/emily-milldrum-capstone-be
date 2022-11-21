@@ -35,8 +35,4 @@ public class StageController {
     public Processes addToProcess(@RequestBody StageAddDTO requestDTO){
         return this.stageService.addToProcess(requestDTO);
     }
-//    @GetMapping("/byId/{processId}")
-//    Iterable<Stage> getById(@PathVariable Integer processId) {
-//        return this.stageService.findStagesByProcessId(processId);
-//    }
 }

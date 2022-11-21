@@ -1,9 +1,4 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stageOptions;
-
-import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
-import net.yorksolutions.emilymilldrumcapstonebe.stage.StageDTO;
-import net.yorksolutions.emilymilldrumcapstonebe.stage.StageService;
-import net.yorksolutions.emilymilldrumcapstonebe.stage.StageUpdateDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
