@@ -1,8 +1,6 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stageOptions;
 
-import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
 import net.yorksolutions.emilymilldrumcapstonebe.stage.Stage;
-import net.yorksolutions.emilymilldrumcapstonebe.stage.StageAddDTO;
 import net.yorksolutions.emilymilldrumcapstonebe.stage.StageRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -21,11 +19,20 @@ public class StageOptionsService {
         this.stageRepository = stageRepository;
     }
 
-    public void delete(Integer optId) {
-        try {
-            this.stageOptionsRepository.deleteById(optId);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+    public Stage delete(Integer optId) {
+        Optional<StageOptions> stageOpt = this.stageOptionsRepository.findById(optId);
+        if (stageOpt.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        } else {
+            StageOptions options = stageOpt.get();
+            Optional<Stage> found = stageRepository.findStageByStageOptions(options);
+            if (found.isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            } else {
+                Stage stage = found.get();
+                this.stageOptionsRepository.deleteById(optId);
+                return stage;
+            }
         }
     }
 

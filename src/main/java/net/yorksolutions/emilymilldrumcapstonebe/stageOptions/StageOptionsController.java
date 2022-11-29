@@ -19,9 +19,9 @@ public class StageOptionsController {
         return this.stageOptionsService.getAllOptions();
     }
 
-    @DeleteMapping("/{stageId}")
-    public void delete(@PathVariable Integer stageId){
-        this.stageOptionsService.delete(stageId);
+    @DeleteMapping("/{optId}")
+    public Stage delete(@PathVariable Integer optId){
+        return this.stageOptionsService.delete(optId);
     }
 
     @PutMapping
