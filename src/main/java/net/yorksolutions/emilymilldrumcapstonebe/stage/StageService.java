@@ -1,8 +1,12 @@
 package net.yorksolutions.emilymilldrumcapstonebe.stage;
 
+import net.yorksolutions.emilymilldrumcapstonebe.answer.Answer;
+import net.yorksolutions.emilymilldrumcapstonebe.answer.AnswerRepository;
 import net.yorksolutions.emilymilldrumcapstonebe.process.ProcessService;
 import net.yorksolutions.emilymilldrumcapstonebe.process.Processes;
 import net.yorksolutions.emilymilldrumcapstonebe.process.ProcessesRepository;
+import net.yorksolutions.emilymilldrumcapstonebe.response.Response;
+import net.yorksolutions.emilymilldrumcapstonebe.response.ResponseRepository;
 import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptions;
 import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptionsRepository;
 import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptionsService;
@@ -19,12 +23,18 @@ public class StageService {
     ProcessesRepository processesRepository;
     StageOptionsRepository optionsRepository;
     StageOptionsService optionsService;
+    AnswerRepository answerRepository;
+    ResponseRepository responseRepository;
 
-    public StageService(StageRepository stageRepository, ProcessesRepository processesRepository, StageOptionsRepository optionsRepository
+    public StageService(StageRepository stageRepository, ProcessesRepository processesRepository,
+                        StageOptionsRepository optionsRepository, AnswerRepository answerRepository,
+                        ResponseRepository responseRepository
     ) {
         this.stageRepository = stageRepository;
         this.processesRepository = processesRepository;
         this.optionsRepository = optionsRepository;
+        this.answerRepository = answerRepository;
+        this.responseRepository = responseRepository;
     }
 
     public Stage create(StageDTO requestDTO) {
@@ -62,6 +72,17 @@ public class StageService {
                 Stage stageFormat = stageOpt.get();
                 Processes processes = procOpt.get();
                 processes.removeStage(stageFormat);
+//                Response response = responseRepository.findAllByProcesses_Id(stageFormat.getId());
+//
+                Iterable<Answer> answers = this.answerRepository.findAllByStage(stageFormat);
+//
+////                for (Answer answer:answers){
+////                    Iterable<Response> response = this.responseRepository.findAllByAnswer(answer);
+////                    re
+////                }
+//
+                System.out.println(answers.toString());
+                    this.answerRepository.deleteAll(answers);
                 this.stageRepository.delete(stageFormat);
             }
         } catch (Exception e) {

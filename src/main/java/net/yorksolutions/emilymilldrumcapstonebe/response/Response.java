@@ -19,7 +19,8 @@ public class Response {
     Processes processes;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinTable(name="response_answer")
+    //@JoinTable(name="response_answer")
+    @JoinColumn(name="response_id")
     List<Answer> answer;
 
     public Response(){
@@ -29,6 +30,10 @@ public class Response {
     public Response(Processes processes, List<Answer> answer) {
         setProcesses(processes);
         setAnswer(answer);
+    }
+
+    public void removeAnswer(Answer incAnswer){
+        answer.remove(incAnswer);
     }
 
     public Integer getId() {

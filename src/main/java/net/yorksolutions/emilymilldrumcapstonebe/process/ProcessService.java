@@ -19,7 +19,6 @@ public class ProcessService {
         this.stageRepository = stageRepository;
     }
 
-
     //creat a new process
     public Processes create(ProcessDTO requestDTO) {
         try {
@@ -39,7 +38,6 @@ public class ProcessService {
         }
 
     }
-
 
     //delete a process
     public void delete(Integer processId) {
