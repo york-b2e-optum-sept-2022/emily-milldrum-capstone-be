@@ -3,6 +3,7 @@ import net.yorksolutions.emilymilldrumcapstonebe.stageOptions.StageOptions;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 //these are the questions
@@ -17,6 +18,7 @@ public class Stage {
     private String question;
     private Integer stageOrder;
     private String type;
+
 
     @OneToMany(
            // mappedBy = "processes_id",

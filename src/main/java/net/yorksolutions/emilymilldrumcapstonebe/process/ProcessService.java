@@ -61,6 +61,10 @@ public class ProcessService {
                 Processes processes = processOpt.get();
                 processes.setTitle(requestDTO.title);
                 processes.setDiscontinued(requestDTO.discontinued);
+                for (Stage stage: requestDTO.stage)
+                {
+                    this.stageRepository.save(stage);
+                }
                 return this.processesRepository.save(processes);
             }
         } catch (Exception e) {
